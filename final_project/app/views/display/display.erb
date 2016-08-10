@@ -1,0 +1,29 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <h1 id="title">WellLogView</h1>
+  </div>
+</nav>
+
+
+<div class="tabs">
+    <ul class="tab-links">
+        <li class="active"><a href="#tab1">Log Display</a></li>
+        <li><a href="#tab2">Display Settings</a></li>
+    </ul>
+ 
+    <div class="tab-content">
+        <div id="tab1" class="tab active">
+            <p>Tab #1 content goes here!</p>
+            <%= @curves %>
+            <%= @curves_json %>
+        </div>
+ 
+        <div id="tab2" class="tab">
+            <p>Tab #2 content goes here!</p>
+            <%= @curves %>
+            <script src="/javascript/plot_settings.js"></script>
+        </div>
+    </div>
+</div>
+
+
