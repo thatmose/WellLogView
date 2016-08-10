@@ -36,9 +36,5 @@ class LogWellView < Sinatra::Base
     File.open("#{@filename}", "w") { |f| f.write(params[:file][:tempfile].read) }
     redirect "/display/#{@filename}"
   end
-  
-  get '/render_file/:filename' do
-    params[:filename]
-  end
 
 end
