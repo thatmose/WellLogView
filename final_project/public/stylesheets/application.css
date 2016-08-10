@@ -62,3 +62,33 @@
         .tab.active {
             display:block;
         }
+
+select#curve_track {
+  position: fixed;
+  left: 10%;
+}
+
+select#scale_type {
+  position: fixed;
+  left: 15%;
+}
+
+input.jscolor {
+  position: fixed;
+  left: 20%;
+}
+
+select#line_type {
+  position: fixed;
+  left: 25%;
+}
+
+input#minscale {
+  position: fixed;
+  left: 30%;
+}
+
+input#maxscale {
+  position: fixed;
+  left: 35%;
+}
