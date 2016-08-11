@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/thatmose/cwls-las-reader.git
-  revision: 8537fc38b47e8e8fd87f89b87fb3e78b7bbbac71
+  revision: c273c97ed7ed0bfd5617145c7a31ee007827fc1f
   specs:
     las_reader (0.0.4)
 
@@ -125,4 +125,4 @@ DEPENDENCIES
   tux
 
 BUNDLED WITH
-   1.12.5
+   1.11.2
