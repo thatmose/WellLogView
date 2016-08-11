@@ -81,6 +81,7 @@ input.jscolor {
 select#line_type {
   position: fixed;
   left: 27%;
+  text-align: center;
 }
 
 input#minscale {
@@ -128,6 +129,16 @@ div#track4 {
   height: 2000px;
   border: 1px solid;
   float: left;
+}
+
+#home {
+  float: right;
+  background-color: white;
+  position: relative;
+}
+
+h1 {
+  display: inline;
 }
 
 
