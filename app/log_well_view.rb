@@ -3,7 +3,7 @@ require 'las_reader'
 require 'json'
 require_relative 'well'
 
-class LogWellView < Sinatra::Base
+ class LogWellView < Sinatra::Base
 
   get '/' do
     erb :index
@@ -36,5 +36,4 @@ class LogWellView < Sinatra::Base
     File.open("#{@filename}", "w") { |f| f.write(params[:file][:tempfile].read) }
     redirect "/display/#{@filename}"
   end
-
-end
+ end

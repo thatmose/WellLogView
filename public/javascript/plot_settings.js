@@ -31,3 +31,25 @@ $(document).ready(function() {
    });
   $("<input>").attr("type","submit").attr("value","Make Plot").appendTo(form);
 });
+
+$(document).ready(function() {    
+
+  var div_header = $(document.createElement('div')).attr("id","well_header").appendTo("#tab1");
+  $("<h3>").text("Well Name : "+welldata.wellinfo.wellname).appendTo(div_header);
+  $("<h3>").text("Field Name : "+welldata.wellinfo.field).appendTo(div_header);
+  $("<h3>").text("Company : "+welldata.wellinfo.company).appendTo(div_header);
+  $("<h3>").text("Country : "+welldata.wellinfo.country).appendTo(div_header);
+  $("<h3>").text("State : "+welldata.wellinfo.state).appendTo(div_header);
+  $("<h3>").text("Province : "+welldata.wellinfo.province).appendTo(div_header);
+  $("<h3>").text("UWI : "+welldata.wellinfo.uwi).appendTo(div_header);
+
+  var div_track1 = $(document.createElement('div')).attr("id","track1").appendTo("#tab1");
+
+  var div_track2 = $(document.createElement('div')).attr("id","track2").appendTo("#tab1");
+
+  var div_track3 = $(document.createElement('div')).attr("id","track3").appendTo("#tab1");
+
+  var div_track4 = $(document.createElement('div')).attr("id","track4").appendTo("#tab1"); 
+});
+
+
