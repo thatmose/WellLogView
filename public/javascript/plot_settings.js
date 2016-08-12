@@ -2,20 +2,20 @@ var myData = [];
 var plotCurves = [];
 var plotJSON = {};
 var xaxes = [];
+var traces = [];
 const GRAPH_END = 0.95;
 const DEPTH = welldata.logdata['DEPTH'];
 const SUBPLOT_SPACING = [ [0, .27], [.33, .43], [.48, .68] ,[.73, 1]];
 
 var layout = {
   margin: {
-      l: 50,
-      r: 50,
-      b: 0,
-      t: 50,
-      pad: 4
-    }
+    l: 50,
+    r: 50,
+    b: 0,
+    t: 50,
+    pad: 4
+  }
 };
-var traces = [];
 
 $(document).ready(function() {
 
@@ -83,6 +83,7 @@ $(document).ready(function() {
           dash: plotJSON[val].line_style,
         }, 
       };
+      console.log(welldata.logdata[val]);
     });
   }
 
@@ -185,6 +186,12 @@ $(document).ready(function() {
   $("<input>").attr("type","submit").attr("value","Make Plot").appendTo(form);
 
   $( "form" ).submit(function( event ) {
+    myData = [];
+    plotCurves = [];
+    plotJSON = {};
+    xaxes = [];
+    traces = [];
+
     selected_curves = $('input[type=checkbox]:checked');
     selected_curves.each(function(index, el){
       plotCurves[index] = el.value;
