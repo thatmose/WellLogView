@@ -4,12 +4,11 @@ var plotJSON = {};
 var xaxes = [];
 var traces = [];
 const GRAPH_END = 0.95;
-
+var DEPTH = 0;
 if (welldata.curveinfo.DEPT) {
-    const DEPTH = welldata.logdata['DEPT']
-    console.log("Hello World")
+     DEPTH = welldata.logdata['DEPT']
   } else {
-    const DEPTH = welldata.logdata['DEPTH']
+     DEPTH = welldata.logdata['DEPTH']
   }
 // const DEPTH = welldata.logdata['DEPTH'];
 const SUBPLOT_SPACING = [ [0, .27], [.33, .43], [.48, .68] ,[.73, 1]];
@@ -49,11 +48,12 @@ $(document).ready(function() {
   }
 
   function generateLayoutYAxis(){
+    var depth = plotJSON['DEPTH'] || plotJSON['DEPT']
     layout.yaxis = { domain: [0.8],
       title: "Depth",
       autorange: 'reversed',
       side: 'right',
-      range: plotJSON['DEPTH'].scale,
+      range: depth.scale,
       domain: [0, GRAPH_END],
       showgrid: true,
       gridwidth: 3
