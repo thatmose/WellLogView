@@ -104,7 +104,7 @@ h3 {
   padding-left: 5px;
 }
 div#track1 {
-  width: 30%;
+  width: 96%;
   height: 2000px;
   border: 1px solid;
   float: left;
@@ -140,6 +140,7 @@ div#track4 {
 h1 {
   display: inline;
 }
+
 
 
 
