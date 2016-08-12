@@ -2,12 +2,18 @@ var myData = [];
 var plotCurves = [];
 var plotJSON = {};
 var xaxes = [];
-const GRAPH_END = 0.75;
+const GRAPH_END = 0.95;
 const DEPTH = welldata.logdata['DEPTH'];
-const SUBPLOT_SPACING = [ [0, .27], [.33, .43], [.48, .68] ,[.73, 1]]
+const SUBPLOT_SPACING = [ [0, .27], [.33, .43], [.48, .68] ,[.73, 1]];
+
 var layout = {
-  width: 1000,
-  height: 1400
+  margin: {
+      l: 50,
+      r: 50,
+      b: 0,
+      t: 50,
+      pad: 4
+    }
 };
 var traces = [];
 
@@ -41,7 +47,9 @@ $(document).ready(function() {
       autorange: 'reversed',
       side: 'right',
       range: plotJSON['DEPTH'].scale,
-      domain: [0, GRAPH_END]
+      domain: [0, GRAPH_END],
+      showgrid: true,
+      gridwidth: 3
     }
   }
 
@@ -56,7 +64,9 @@ $(document).ready(function() {
         showline: true,
         type: plotJSON[val[2]].track_type,
         range: (plotJSON[val[2]].track_type == "log") ? plotJSON[val[2]].scale.map(generateLogRange) : plotJSON[val[2]].scale,
-        domain: generateSubplotSpacing(val[1])
+        domain: generateSubplotSpacing(val[1]),
+        showgrid: true,
+        gridwidth: 2
       }
     })
   }
@@ -196,7 +206,7 @@ $(document).ready(function() {
       }
     });
     prepForPlot(plotJSON);
-    Plotly.newPlot('test',traces,layout);
+    Plotly.newPlot('track1',traces,layout);
     event.preventDefault();
   });
 });
@@ -213,11 +223,12 @@ $(document).ready(function() {
   $("<h3>").text("UWI : "+welldata.wellinfo.uwi).appendTo(div_header);
 
   var div_track1 = $(document.createElement('div')).attr("id","track1").appendTo("#tab1");
+  layout.width = div_track1.width();
+  layout.height = div_track1.height();
+  // var div_track2 = $(document.createElement('div')).attr("id","track2").appendTo("#tab1");
 
-  var div_track2 = $(document.createElement('div')).attr("id","track2").appendTo("#tab1");
+  // var div_track3 = $(document.createElement('div')).attr("id","track3").appendTo("#tab1");
 
-  var div_track3 = $(document.createElement('div')).attr("id","track3").appendTo("#tab1");
-
-  var div_track4 = $(document.createElement('div')).attr("id","track4").appendTo("#tab1"); 
+  // var div_track4 = $(document.createElement('div')).attr("id","track4").appendTo("#tab1"); 
 });
 
