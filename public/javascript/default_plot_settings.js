@@ -17,8 +17,8 @@ $(document).ready(function() {
       $("<option>").val("4").text("4").appendTo(track_select);
 
       var scale_type_select = $(document.createElement('select')).attr("id","scale_type").attr("name","scale_type"+curve).appendTo(div);
-      $("<option>").val("Linear").text("Linear").appendTo(scale_type_select);
-      $("<option>").val("Log").text("Log").appendTo(scale_type_select);
+      $("<option>").val("linear").text("Linear").appendTo(scale_type_select);
+      $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
       $("<input>").attr("class","jscolor").attr("value","20AB0F").attr("size","2").attr("name","color"+curve).appendTo(div);
 
@@ -46,7 +46,7 @@ $(document).ready(function() {
 
       var scale_type_select = $(document.createElement('select')).attr("id","scale_type").attr("name","scale_type"+curve).appendTo(div);
       $("<option>").val("Linear").text("Linear").appendTo(scale_type_select);
-      $("<option>").val("Log").text("Log").appendTo(scale_type_select);
+      $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
       $("<input>").attr("class","jscolor").attr("value","0960AB").attr("size","2").attr("name","color"+curve).appendTo(div);
 
@@ -74,7 +74,7 @@ $(document).ready(function() {
 
       var scale_type_select = $(document.createElement('select')).attr("id","scale_type").attr("name","scale_type"+curve).appendTo(div);
       $("<option>").val("Linear").text("Linear").appendTo(scale_type_select);
-      $("<option>").val("Log").text("Log").appendTo(scale_type_select);
+      $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
       $("<input>").attr("class","jscolor").attr("value","0960AB").attr("size","2").attr("name","color"+curve).appendTo(div);
 
@@ -102,7 +102,7 @@ $(document).ready(function() {
 
       var scale_type_select = $(document.createElement('select')).attr("id","scale_type").attr("name","scale_type"+curve).appendTo(div);
       $("<option>").val("Linear").text("Linear").appendTo(scale_type_select);
-      $("<option>").val("Log").text("Log").appendTo(scale_type_select);
+      $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
       $("<input>").attr("class","jscolor").attr("value","E3300E").attr("size","2").attr("name","color"+curve).appendTo(div);
 
@@ -130,7 +130,7 @@ $(document).ready(function() {
 
       var scale_type_select = $(document.createElement('select')).attr("id","scale_type").attr("name","scale_type"+curve).appendTo(div);
       $("<option>").val("Linear").text("Linear").appendTo(scale_type_select);
-      $("<option>").val("Log").text("Log").appendTo(scale_type_select);
+      $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
       $("<input>").attr("class","jscolor").attr("value","E3300E").attr("size","2").attr("name","color"+curve).appendTo(div);
 
@@ -158,7 +158,7 @@ $(document).ready(function() {
 
       var scale_type_select = $(document.createElement('select')).attr("id","scale_type").attr("name","scale_type"+curve).appendTo(div);
       $("<option>").val("Linear").text("Linear").appendTo(scale_type_select);
-      $("<option>").val("Log").text("Log").attr("selected","selected").appendTo(scale_type_select);
+      $("<option>").val("log").text("Log").attr("selected","selected").appendTo(scale_type_select);
 
       $("<input>").attr("class","jscolor").attr("value","E3300E").attr("size","2").attr("name","color"+curve).appendTo(div);
 
@@ -186,7 +186,7 @@ $(document).ready(function() {
 
       var scale_type_select = $(document.createElement('select')).attr("id","scale_type").attr("name","scale_type"+curve).appendTo(div);
       $("<option>").val("Linear").text("Linear").appendTo(scale_type_select);
-      $("<option>").val("Log").text("Log").attr("selected","selected").appendTo(scale_type_select);
+      $("<option>").val("log").text("Log").attr("selected","selected").appendTo(scale_type_select);
 
       $("<input>").attr("class","jscolor").attr("value","0960AB").attr("size","2").attr("name","color"+curve).appendTo(div);
 
@@ -213,8 +213,8 @@ $(document).ready(function() {
       $("<option>").val("4").text("4").appendTo(track_select);
 
       var scale_type_select = $(document.createElement('select')).attr("id","scale_type").attr("name","scale_type"+curve).appendTo(div);
-      $("<option>").val("Linear").text("Linear").appendTo(scale_type_select);
-      $("<option>").val("Log").text("Log").attr("selected","selected").appendTo(scale_type_select);
+      $("<option>").val("linear").text("Linear").appendTo(scale_type_select);
+      $("<option>").val("log").text("Log").attr("selected","selected").appendTo(scale_type_select);
 
       $("<input>").attr("class","jscolor").attr("value","20AB0F").attr("size","2").attr("name","color"+curve).appendTo(div);
 
@@ -242,7 +242,7 @@ $(document).ready(function() {
 
       var scale_type_select = $(document.createElement('select')).attr("id","scale_type").attr("name","scale_type"+curve).appendTo(div);
       $("<option>").val("Linear").text("Linear").attr("selected","selected").appendTo(scale_type_select);
-      $("<option>").val("Log").text("Log").appendTo(scale_type_select);
+      $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
       $("<input>").attr("class","jscolor").attr("value","0960AB").attr("size","2").attr("name","color"+curve).appendTo(div);
 
@@ -270,7 +270,7 @@ $(document).ready(function() {
 
       var scale_type_select = $(document.createElement('select')).attr("id","scale_type").attr("name","scale_type"+curve).appendTo(div);
       $("<option>").val("Linear").text("Linear").attr("selected","selected").appendTo(scale_type_select);
-      $("<option>").val("Log").text("Log").appendTo(scale_type_select);
+      $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
       $("<input>").attr("class","jscolor").attr("value","20AB0F").attr("size","2").attr("name","color"+curve).appendTo(div);
 
@@ -298,7 +298,7 @@ $(document).ready(function() {
 
       var scale_type_select = $(document.createElement('select')).attr("id","scale_type").attr("name","scale_type"+curve).appendTo(div);
       $("<option>").val("Linear").text("Linear").attr("selected","selected").appendTo(scale_type_select);
-      $("<option>").val("Log").text("Log").appendTo(scale_type_select);
+      $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
       $("<input>").attr("class","jscolor").attr("value","20AB0F").attr("size","2").attr("name","color"+curve).appendTo(div);
 
@@ -326,7 +326,7 @@ $(document).ready(function() {
 
       var scale_type_select = $(document.createElement('select')).attr("id","scale_type").attr("name","scale_type"+curve).appendTo(div);
       $("<option>").val("Linear").text("Linear").attr("selected","selected").appendTo(scale_type_select);
-      $("<option>").val("Log").text("Log").appendTo(scale_type_select);
+      $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
       $("<input>").attr("class","jscolor").attr("value","050203").attr("size","2").attr("name","color"+curve).appendTo(div);
 
