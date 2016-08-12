@@ -3,7 +3,14 @@ var plotCurves = [];
 var plotJSON = {};
 var xaxes = [];
 const GRAPH_END = 0.95;
-const DEPTH = welldata.logdata['DEPTH'];
+
+if (welldata.curveinfo.DEPT) {
+    const DEPTH = welldata.logdata['DEPT']
+    console.log("Hello World")
+  } else {
+    const DEPTH = welldata.logdata['DEPTH']
+  }
+// const DEPTH = welldata.logdata['DEPTH'];
 const SUBPLOT_SPACING = [ [0, .27], [.33, .43], [.48, .68] ,[.73, 1]];
 
 var layout = {
@@ -132,6 +139,8 @@ $(document).ready(function() {
     var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
     if (curve == "GR") {
       defaults.gr_default(curve)
+    } else if ((curve == "DEPT") || (curve == 'DEPTH')) {
+      defaults.depth_default(curve)
     } else if (((curve == "CALI") || (curve == "CALS") || (curve == "HCAL")) && (unit=="F")) {
       defaults.cali_default_oilfield(curve)
     } else if (((curve == "CALI") || (curve == "CALS") || (curve == "HCAL")) && (unit=="M")) {
