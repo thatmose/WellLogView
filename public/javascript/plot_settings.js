@@ -1,25 +1,37 @@
 $(document).ready(function() {
-   curves = (Object.keys(welldata.curveinfo));     
-   // var form = $(document.createElement('form')).attr("method","post").attr("id","main_form").attr("action","/display").appendTo("#tab2");
+   curves = (Object.keys(welldata.curveinfo));
+   if (welldata.curveinfo.DEPT) {
+    var unit = welldata.curveinfo.DEPT.unit
+   } else {
+    var unit = welldata.curveinfo.DEPTH.unit
+   }
    var form = document.getElementById("main_form");
    curves.forEach(function(curve){
     var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
     if (curve == "GR") {
       defaults.gr_default(curve)
-    } else if (curve == "CALI") {
-      defaults.cali_default(curve)
-    } else if (curve == "RHOB") {
-      defaults.rhob_default(curve)
-    } else if ((curve == "ILD") || (curve == 'LLD')){
+    } else if (((curve == "CALI") || (curve == "CALS") || (curve == "HCAL")) && (unit=="F")) {
+      defaults.cali_default_oilfield(curve)
+    } else if (((curve == "CALI") || (curve == "CALS") || (curve == "HCAL")) && (unit=="M")) {
+      defaults.cali_default_metric(curve)
+    } else if (((curve == "RHOB") || (curve == "RHOZ") || (curve == "DEN")) && (unit=="F")) {
+      defaults.rhob_default_oilfield(curve)
+    } else if (((curve == "RHOB") || (curve == "RHOZ") || (curve == "DEN")) && (unit=="M")) {
+      defaults.rhob_default_metric(curve) 
+    } else if ((curve == "ILD") || (curve == 'LLD') || (curve == 'RT')) {
       defaults.ild_default(curve)
-    } else if ((curve == "ILM") || (curve == 'LLS')){
+    } else if ((curve == "ILM") || (curve == 'LLS') || (curve == 'AT30')) {
       defaults.ilm_default(curve)
-    } else if (curve == "SFL") {
+    } else if ((curve == "SFL") || (curve == "MSFL") || (curve == "SFLU")) {
       defaults.sfl_default(curve)
-    } else if ((curve == "CNS") || (curve == "NPHI")) {
+    } else if ((curve == "CNS") || (curve == "NPHI") || (curve == "NPSS")) {
       defaults.nphi_default(curve)
-    } else if ((curve == "DT") || (curve == "DTCO")) {
-      defaults.dt_default(curve)
+    } else if (((curve == "DT") || (curve == "DTCO") || (curve == "AC")) && (unit=="F")) {
+      defaults.dt_default_oilfield(curve)
+    } else if (((curve == "DT") || (curve == "DTCO") || (curve == "AC")) && (unit=="M")) {
+      defaults.dt_default_metric(curve) 
+    } else if ((curve == "PEF") || (curve == "PEFZ")) {
+      defaults.pef_default(curve)
     } else {
       $("<input>").attr("type","checkbox").attr("id",curve).attr("name",curve).attr("value",curve).attr("text",curve).appendTo(div);
     
@@ -39,8 +51,8 @@ $(document).ready(function() {
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").appendTo(line_style_select);
       $("<option>").val("dash").text("dash").appendTo(line_style_select);
-      $("<option>").val("dotted").text("dotted").appendTo(line_style_select);
-      $("<option>").val("dash-dotted").text("dash-dotted").appendTo(line_style_select);
+      $("<option>").val("dot").text("dot").appendTo(line_style_select);
+      $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
 
       $("<input>").attr("id","minscale").attr("value","0").attr("name","minscale"+curve).attr("size","5").appendTo(div);
 
@@ -48,6 +60,7 @@ $(document).ready(function() {
     }                 
    });
   $("<input>").attr("type","submit").attr("value","Make Plot").appendTo(form);
+  
   $( "form" ).submit(function( event ) {
     console.log( $( this ).serializeArray() );
     event.preventDefault();
