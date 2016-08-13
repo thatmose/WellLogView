@@ -22,7 +22,7 @@ var layout = {
     pad: 4
   }
 };
-
+var unit = ""
 $(document).ready(function() {
 
   function generateLogRange(num){
@@ -130,9 +130,9 @@ $(document).ready(function() {
 
   curves = (Object.keys(welldata.curveinfo));
   if (welldata.curveinfo.DEPT) {
-    var unit = welldata.curveinfo.DEPT.unit
+    unit = welldata.curveinfo.DEPT.unit
   } else {
-    var unit = welldata.curveinfo.DEPTH.unit
+    unit = welldata.curveinfo.DEPTH.unit
   }
 
   var form = document.getElementById("main_form");
@@ -230,21 +230,22 @@ $(document).ready(function() {
 $(document).ready(function() {    
 
   var div_header = $(document.createElement('div')).attr("id","well_header").appendTo("#tab1");
-  $("<h3>").text("Well Name : "+welldata.wellinfo.wellname).appendTo(div_header);
-  $("<h3>").text("Field Name : "+welldata.wellinfo.field).appendTo(div_header);
-  $("<h3>").text("Company : "+welldata.wellinfo.company).appendTo(div_header);
-  $("<h3>").text("Country : "+welldata.wellinfo.country).appendTo(div_header);
-  $("<h3>").text("State : "+welldata.wellinfo.state).appendTo(div_header);
-  $("<h3>").text("Province : "+welldata.wellinfo.province).appendTo(div_header);
-  $("<h3>").text("UWI : "+welldata.wellinfo.uwi).appendTo(div_header);
-
   var div_track1 = $(document.createElement('div')).attr("id","track1").appendTo("#tab1");
   layout.width = div_track1.width();
   layout.height = div_track1.height();
-  // var div_track2 = $(document.createElement('div')).attr("id","track2").appendTo("#tab1");
-
-  // var div_track3 = $(document.createElement('div')).attr("id","track3").appendTo("#tab1");
-
-  // var div_track4 = $(document.createElement('div')).attr("id","track4").appendTo("#tab1"); 
+ 
+ var tab1_header = $(document.createElement('table')).attr("id","well_header1").appendTo(div_header); 
+  $("<tr>").text("Well Name : "+welldata.wellinfo.wellname).appendTo(tab1_header);
+  $("<tr>").text("Field Name : "+welldata.wellinfo.field).appendTo(tab1_header);
+  $("<tr>").text("Company : "+welldata.wellinfo.company).appendTo(tab1_header);
+  $("<tr>").text("Country : "+welldata.wellinfo.country).appendTo(tab1_header);
+  $("<tr>").text("State : "+welldata.wellinfo.state).appendTo(tab1_header);
+  $("<tr>").text("Province : "+welldata.wellinfo.province).appendTo(tab1_header);
+  $("<tr>").text("UWI : "+welldata.wellinfo.uwi).appendTo(tab1_header);
+  $("<tr>").text("Start : "+welldata.wellinfo.start_depth+unit).appendTo(tab1_header);
+  $("<tr>").text("Stop : "+welldata.wellinfo.stop_depth+unit).appendTo(tab1_header);
+  $("<tr>").text("Location : "+welldata.wellinfo.location).appendTo(tab1_header);
+  $("<tr>").text("Unit : "+welldata.wellinfo.unit).appendTo(tab1_header);
+  $("<tr>").text("Date : "+welldata.wellinfo.date).appendTo(tab1_header);
 });
 
