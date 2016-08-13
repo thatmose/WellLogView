@@ -100,11 +100,14 @@ function positionInstructions(track_num, curve_name){
   });
   axis_gap = (1 - GRAPH_END)/trackPositions[track_num].length;
   position = XAXIS_OFFSET + GRAPH_END + (pos_info[0][1] - 1) * axis_gap;
+  // if position on track is not 1, hence pos > 1
   if (pos_info[0][1] !== 1){
     result = trackPositions[track_num].filter(function(arr){
       return arr[1] === 1;
     });
     overlay_axis = plotJSON[result[0][0]].xaxis;
+  } else {
+    overlay_axis = null;
   }
 
   return [position, overlay_axis];
