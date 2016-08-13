@@ -141,6 +141,10 @@ h1 {
   display: inline;
 }
 
+table#well_header1 {
+  padding-left: 5px;
+  font-size: 1.3em;
+}
 
 
 
