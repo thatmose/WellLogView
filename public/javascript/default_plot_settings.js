@@ -1,7 +1,7 @@
 var defaults 
 $(document).ready(function() {
 
-  var form = $(document.createElement('form')).attr("id","main_form").attr("method","post").attr("action","/display").appendTo("#tab2");
+  var form = $(document.createElement('form')).attr("id","main_form").attr("method","post").attr("action","/display").appendTo("#tab1");
   
   defaults = {
 
