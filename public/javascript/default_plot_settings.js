@@ -112,9 +112,9 @@ $(document).ready(function() {
       $("<option>").val("dot").text("dot").appendTo(line_style_select);
       $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
 
-      $("<input>").attr("id","minscale").attr("value","2").attr("name","minscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","minscale").attr("value","1.95").attr("name","minscale"+curve).attr("size","5").appendTo(div);
 
-      $("<input>").attr("id","maxscale").attr("value","3").attr("name","maxscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","maxscale").attr("value","2.95").attr("name","maxscale"+curve).attr("size","5").appendTo(div);
     },
     rhob_default_metric: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -252,9 +252,9 @@ $(document).ready(function() {
       $("<option>").val("dot").text("dot").appendTo(line_style_select);
       $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
 
-      $("<input>").attr("id","minscale").attr("value","-0.15").attr("name","minscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","minscale").attr("value","0.45").attr("name","minscale"+curve).attr("size","5").appendTo(div);
 
-      $("<input>").attr("id","maxscale").attr("value","0.45").attr("name","maxscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","maxscale").attr("value","-0.15").attr("name","maxscale"+curve).attr("size","5").appendTo(div);
     },
     dt_default_oilfield: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
