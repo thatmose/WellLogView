@@ -4,131 +4,155 @@ var plotJSON = {};
 var xaxes = [];
 var traces = [];
 var trackPositions = {};
-const GRAPH_END = 0.95;
 var overlay_axis = null;
+var layout = {};
+const GRAPH_END = 0.95;
 var DEPTH = 0;
 const XAXIS_OFFSET = 0.01;
 if (welldata.curveinfo.DEPT) {
-     DEPTH = welldata.logdata['DEPT']
-  } else {
-     DEPTH = welldata.logdata['DEPTH']
-  }
+ DEPTH = welldata.logdata['DEPT']
+} else {
+ DEPTH = welldata.logdata['DEPTH']
+}
 // const DEPTH = welldata.logdata['DEPTH'];
 const SUBPLOT_SPACING = [ [0, .27], [.33, .43], [.48, .68] ,[.73, 1]];
-
-var layout = {
-  margin: {
-    l: 50,
-    r: 50,
-    b: 0,
-    t: 50,
-    pad: 4
-  }
+var margin = {
+  l: 50,
+  r: 50,
+  b: 0,
+  t: 50,
+  pad: 4
 };
+
 var unit = ""
+
+$(document).ready(function() {    
+
+  var div_header = $(document.createElement('div')).attr("id","well_header").appendTo("#tab1");
+  var div_track1 = $(document.createElement('div')).attr("id","track1").appendTo("#tab1");
+
+  var tab1_header = $(document.createElement('table')).attr("id","well_header1").appendTo(div_header); 
+  $("<tr>").text("Well Name : "+welldata.wellinfo.wellname).appendTo(tab1_header);
+  $("<tr>").text("Field Name : "+welldata.wellinfo.field).appendTo(tab1_header);
+  $("<tr>").text("Company : "+welldata.wellinfo.company).appendTo(tab1_header);
+  $("<tr>").text("Country : "+welldata.wellinfo.country).appendTo(tab1_header);
+  $("<tr>").text("State : "+welldata.wellinfo.state).appendTo(tab1_header);
+  $("<tr>").text("Province : "+welldata.wellinfo.province).appendTo(tab1_header);
+  $("<tr>").text("UWI : "+welldata.wellinfo.uwi).appendTo(tab1_header);
+  $("<tr>").text("Start : "+welldata.wellinfo.start_depth+unit).appendTo(tab1_header);
+  $("<tr>").text("Stop : "+welldata.wellinfo.stop_depth+unit).appendTo(tab1_header);
+  $("<tr>").text("Location : "+welldata.wellinfo.location).appendTo(tab1_header);
+  $("<tr>").text("Unit : "+welldata.wellinfo.unit).appendTo(tab1_header);
+  $("<tr>").text("Date : "+welldata.wellinfo.date).appendTo(tab1_header);
+});
+
 $(document).ready(function() {
 
-  function generateLogRange(num){
-    if (num == 0)
-      num = 0.001;
-    return Math.log10(num);
+// Takes an input of a number and returns the log (base 10)
+function generateLogRange(num){
+  if (num == 0)
+    num = 0.001;
+  return Math.log10(num);
+}
+
+function generateTraceXAxes(index, val){
+  if (index == 0){
+    plotJSON[val].xaxis = "x";
+  } else {
+    plotJSON[val].xaxis = "x" + (index + 1);
+  }
+}
+
+function generateTrackXAxes(index, val, track_num){
+  if (index == 0){
+    xaxes[index] = ['xaxis', track_num, val];
+  } else {
+    xaxes[index] = ['xaxis' + (index + 1), track_num, val];
+  }
+}
+
+function generateLayoutYAxis(){
+  var depth = plotJSON['DEPTH'] || plotJSON['DEPT']
+  layout.yaxis = { 
+    domain: [0.8],
+    title: "Depth",
+    autorange: 'reversed',
+    side: 'right',
+    range: depth.scale,
+    domain: [0, GRAPH_END],
+    showgrid: true,
+    gridwidth: 3
+  }
+}
+
+function setTrackPositions(track_num, val){
+  if (typeof trackPositions[track_num] === 'undefined'){
+    trackPositions[track_num] = [[val, 1]];
+  } else {
+    pos = trackPositions[track_num].length;
+    trackPositions[track_num].push([val, pos + 1]);
+  };
+}
+
+function positionInstructions(track_num, curve_name){
+  pos_info = trackPositions[track_num].filter(function(arr){
+    return arr[0] === curve_name;
+  });
+  axis_gap = (1 - GRAPH_END)/trackPositions[track_num].length;
+  position = XAXIS_OFFSET + GRAPH_END + (pos_info[0][1] - 1) * axis_gap;
+  if (pos_info[0][1] !== 1){
+    result = trackPositions[track_num].filter(function(arr){
+      return arr[1] === 1;
+    });
+    overlay_axis = plotJSON[result[0][0]].xaxis;
   }
 
-  function generateTraceXAxes(index, val){
-    if (index == 0){
-      plotJSON[val].xaxis = "x";
-    } else {
-      plotJSON[val].xaxis = "x" + (index + 1);
-    }
-  }
+  return [position, overlay_axis];
+}
 
-  function generateTrackXAxes(index, val, track_num){
-    if (index == 0){
-      xaxes[index] = ['xaxis', track_num, val];
-    } else {
-      xaxes[index] = ['xaxis' + (index + 1), track_num, val];
-    }
-  }
-
-  function generateLayoutYAxis(){
-    var depth = plotJSON['DEPTH'] || plotJSON['DEPT']
-    layout.yaxis = { domain: [0.8],
-      title: "Depth",
-      autorange: 'reversed',
-      side: 'right',
-      range: depth.scale,
-      domain: [0, GRAPH_END],
+function generateLayoutXAxes(){
+  xaxes.forEach(function(val, index){
+    layout[val[0]] = {
+      linecolor: plotJSON[val[2]].color,
+      tickcolor: plotJSON[val[2]].color,
+      tickvals: plotJSON[val[2]].scale,
+      title: val[2],
+      side: 'top',
+      showline: true,
+      type: plotJSON[val[2]].track_type,
+      range: (plotJSON[val[2]].track_type == "log") ? plotJSON[val[2]].scale.map(generateLogRange) : plotJSON[val[2]].scale,
+      domain: generateSubplotSpacing(val[1]),
       showgrid: true,
-      gridwidth: 3
-    }
-  }
-
-  function setTrackPositions(track_num, val){
-    if (typeof trackPositions[track_num] === 'undefined'){
-      trackPositions[track_num] = [[val, 1]];
-    } else {
-      pos = trackPositions[track_num].length;
-      trackPositions[track_num].push([val, pos + 1]);
+      gridwidth: 2,
+      position: positionInstructions(val[1], val[2])[0]
     };
-  }
+    if (positionInstructions(val[1], val[2])[1] !== null ){
+      layout[val[0]].overlaying = positionInstructions(val[1], val[2])[1];
+    };
+  })
+}
 
-  function positionInstructions(track_num, curve_name){
-    pos_info = trackPositions[track_num].filter(function(arr){
-      return arr[0] === curve_name;
-    });
-    axis_gap = (1 - GRAPH_END)/trackPositions[track_num].length;
-    position = XAXIS_OFFSET + GRAPH_END + (pos_info[0][1] - 1) * axis_gap;
-    if (pos_info[0][1] !== 1){
-      result = trackPositions[track_num].filter(function(arr){
-        return arr[1] === 1;
-      });
-      overlay_axis = plotJSON[result[0][0]].xaxis;
-    }
+function generateTraces(){
+  plotCurves.forEach(function(val, index){
+    traces[index] = {
+      name: val,
+      x: welldata.logdata[val],
+      y: DEPTH,
+      type: 'scatter',
+      xaxis: plotJSON[val].xaxis,
+      yaxis: 'y',
+      line: {
+        color: plotJSON[val].color,
+        dash: plotJSON[val].line_style,
+      }, 
+    };
+  });
+}
 
-    return [position, overlay_axis];
-  }
-
-  function generateLayoutXAxes(){
-    xaxes.forEach(function(val, index){
-      layout[val[0]] = {
-        linecolor: plotJSON[val[2]].color,
-        tickcolor: plotJSON[val[2]].color,
-        tickvals: plotJSON[val[2]].scale,
-        title: val[2],
-        side: 'top',
-        showline: true,
-        type: plotJSON[val[2]].track_type,
-        range: (plotJSON[val[2]].track_type == "log") ? plotJSON[val[2]].scale.map(generateLogRange) : plotJSON[val[2]].scale,
-        domain: generateSubplotSpacing(val[1]),
-        showgrid: true,
-        gridwidth: 2,
-        position: positionInstructions(val[1], val[2])[0]
-      };
-      if (positionInstructions(val[1], val[2])[1] !== null ){
-        layout[val[0]].overlaying = positionInstructions(val[1], val[2])[1];
-      };
-    })
-  }
-
-  function generateTraces(){
-    plotCurves.forEach(function(val, index){
-      traces[index] = {
-        x: welldata.logdata[val],
-        y: DEPTH,
-        type: 'scatter',
-        xaxis: plotJSON[val].xaxis,
-        line: {
-          color: plotJSON[val].color,
-          dash: plotJSON[val].line_style,
-        }, 
-      };
-    });
-  }
-
-  function generateSubplotSpacing(track){
-    index = parseInt(track) - 1;
-    return SUBPLOT_SPACING[index];
-  }
+function generateSubplotSpacing(track){
+  track_index = parseFloat(track) - 1;
+  return SUBPLOT_SPACING[track_index];
+}
   // Not yet used
   // function generateAxisPosition(graph_end, num){
   //   result = [];
@@ -234,6 +258,10 @@ $(document).ready(function() {
     traces = [];
     trackPositions = {};
     overlay_axis = null;
+    layout = {};
+    layout.margin = margin;
+    layout.width = 970;
+    layout.height = $("#track1").height();
 
     selected_curves = $('input[type=checkbox]:checked');
     selected_curves.each(function(index, el){
@@ -245,7 +273,7 @@ $(document).ready(function() {
       var curve_settings = myData.filter(function(Obj){
         return Obj.name.includes(value);
       });
-      scale_range = [parseInt(curve_settings[5].value, 10), parseInt(curve_settings[6].value, 10)];
+      scale_range = [parseFloat(curve_settings[5].value), parseFloat(curve_settings[6].value)];
 
       plotJSON[value] = {
         track: curve_settings[1].value,
@@ -256,30 +284,11 @@ $(document).ready(function() {
       }
     });
     prepForPlot(plotJSON);
+    console.log($("#track1").width());
+    console.log(layout);
     Plotly.newPlot('track1',traces,layout);
     event.preventDefault();
   });
 });
 
-$(document).ready(function() {    
-
-  var div_header = $(document.createElement('div')).attr("id","well_header").appendTo("#tab1");
-  var div_track1 = $(document.createElement('div')).attr("id","track1").appendTo("#tab1");
-  layout.width = div_track1.width();
-  layout.height = div_track1.height();
- 
- var tab1_header = $(document.createElement('table')).attr("id","well_header1").appendTo(div_header); 
-  $("<tr>").text("Well Name : "+welldata.wellinfo.wellname).appendTo(tab1_header);
-  $("<tr>").text("Field Name : "+welldata.wellinfo.field).appendTo(tab1_header);
-  $("<tr>").text("Company : "+welldata.wellinfo.company).appendTo(tab1_header);
-  $("<tr>").text("Country : "+welldata.wellinfo.country).appendTo(tab1_header);
-  $("<tr>").text("State : "+welldata.wellinfo.state).appendTo(tab1_header);
-  $("<tr>").text("Province : "+welldata.wellinfo.province).appendTo(tab1_header);
-  $("<tr>").text("UWI : "+welldata.wellinfo.uwi).appendTo(tab1_header);
-  $("<tr>").text("Start : "+welldata.wellinfo.start_depth+unit).appendTo(tab1_header);
-  $("<tr>").text("Stop : "+welldata.wellinfo.stop_depth+unit).appendTo(tab1_header);
-  $("<tr>").text("Location : "+welldata.wellinfo.location).appendTo(tab1_header);
-  $("<tr>").text("Unit : "+welldata.wellinfo.unit).appendTo(tab1_header);
-  $("<tr>").text("Date : "+welldata.wellinfo.date).appendTo(tab1_header);
-});
 
