@@ -26,26 +26,6 @@ var margin = {
 
 var unit = ""
 
-$(document).ready(function() {    
-
-  var div_header = $(document.createElement('div')).attr("id","well_header").appendTo("#tab2");
-  var div_track1 = $(document.createElement('div')).attr("id","track1").appendTo("#tab2");
-
-  var tab2_header = $(document.createElement('table')).attr("id","well_header1").appendTo(div_header); 
-  $("<tr>").text("Well Name : "+welldata.wellinfo.wellname).appendTo(tab2_header);
-  $("<tr>").text("Field Name : "+welldata.wellinfo.field).appendTo(tab2_header);
-  $("<tr>").text("Company : "+welldata.wellinfo.company).appendTo(tab2_header);
-  $("<tr>").text("Country : "+welldata.wellinfo.country).appendTo(tab2_header);
-  $("<tr>").text("State : "+welldata.wellinfo.state).appendTo(tab2_header);
-  $("<tr>").text("Province : "+welldata.wellinfo.province).appendTo(tab2_header);
-  $("<tr>").text("UWI : "+welldata.wellinfo.uwi).appendTo(tab2_header);
-  $("<tr>").text("Start : "+welldata.wellinfo.start_depth+unit).appendTo(tab2_header);
-  $("<tr>").text("Stop : "+welldata.wellinfo.stop_depth+unit).appendTo(tab2_header);
-  $("<tr>").text("Location : "+welldata.wellinfo.location).appendTo(tab2_header);
-  $("<tr>").text("Unit : "+welldata.wellinfo.unit).appendTo(tab2_header);
-  $("<tr>").text("Date : "+welldata.wellinfo.date).appendTo(tab2_header);
-});
-
 $(document).ready(function() {
 
 // Takes an input of a number and returns the log (base 10)
@@ -251,6 +231,26 @@ function generateSubplotSpacing(track){
     }                 
 
   });
+
+  $(document).ready(function() {    
+
+  var div_header = $(document.createElement('div')).attr("id","well_header").appendTo("#tab2");
+  var div_track1 = $(document.createElement('div')).attr("id","track1").appendTo("#tab2");
+
+  var tab2_header = $(document.createElement('table')).attr("id","well_header1").appendTo(div_header); 
+  $("<tr>").text("Well Name : "+welldata.wellinfo.wellname).appendTo(tab2_header);
+  $("<tr>").text("Field Name : "+welldata.wellinfo.field).appendTo(tab2_header);
+  $("<tr>").text("Company : "+welldata.wellinfo.company).appendTo(tab2_header);
+  $("<tr>").text("Country : "+welldata.wellinfo.country).appendTo(tab2_header);
+  $("<tr>").text("State : "+welldata.wellinfo.state).appendTo(tab2_header);
+  $("<tr>").text("Province : "+welldata.wellinfo.province).appendTo(tab2_header);
+  $("<tr>").text("UWI : "+welldata.wellinfo.uwi).appendTo(tab2_header);
+  $("<tr>").text("Start : "+welldata.wellinfo.start_depth+unit).appendTo(tab2_header);
+  $("<tr>").text("Stop : "+welldata.wellinfo.stop_depth+unit).appendTo(tab2_header);
+  $("<tr>").text("Location : "+welldata.wellinfo.location).appendTo(tab2_header);
+  $("<tr>").text("Unit : "+welldata.wellinfo.unit).appendTo(tab2_header);
+  $("<tr>").text("Date : "+welldata.wellinfo.date).appendTo(tab2_header);
+});
   $("<input>").attr("type","submit").attr("value","Make Plot").appendTo(form);
 
   $( "form" ).submit(function( event ) {
