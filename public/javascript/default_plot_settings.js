@@ -22,7 +22,7 @@ $(document).ready(function() {
       $("<option>").val("linear").text("Linear").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","20AB0F").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","20AB0F").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").appendTo(line_style_select);
@@ -50,7 +50,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","0960AB").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","0960AB").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").appendTo(line_style_select);
@@ -78,7 +78,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","0960AB").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","0960AB").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").appendTo(line_style_select);
@@ -106,7 +106,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","E3300E").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","E3300E").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").attr("selected","selected").appendTo(line_style_select);
@@ -134,7 +134,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","E3300E").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","E3300E").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").attr("selected","selected").appendTo(line_style_select);
@@ -162,7 +162,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").attr("selected","selected").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","E3300E").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","E3300E").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").attr("selected","selected").appendTo(line_style_select);
@@ -190,7 +190,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").attr("selected","selected").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","0960AB").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","0960AB").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").appendTo(line_style_select);
@@ -218,7 +218,7 @@ $(document).ready(function() {
       $("<option>").val("linear").text("Linear").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").attr("selected","selected").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","20AB0F").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","20AB0F").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").appendTo(line_style_select);
@@ -246,7 +246,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").attr("selected","selected").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","0960AB").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","0960AB").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").appendTo(line_style_select);
@@ -274,7 +274,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").attr("selected","selected").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","20AB0F").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","20AB0F").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").attr("selected","selected").appendTo(line_style_select);
@@ -302,7 +302,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").attr("selected","selected").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","20AB0F").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","20AB0F").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").attr("selected","selected").appendTo(line_style_select);
@@ -330,7 +330,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").attr("selected","selected").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","050203").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","050203").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").appendTo(line_style_select);
@@ -358,7 +358,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").attr("selected","selected").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","0A0206").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","0A0206").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").appendTo(line_style_select);

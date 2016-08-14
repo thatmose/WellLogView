@@ -66,7 +66,7 @@
 
 select#curve_track {
   position: fixed;
-  left: 10%;
+  left: 9%;
 }
 
 select#scale_type {
@@ -81,13 +81,13 @@ input.jscolor {
 
 select#line_type {
   position: fixed;
-  left: 27%;
+  left: 29.3%;
   text-align: center;
 }
 
 input#minscale {
   position: fixed;
-  left: 38%;
+  left: 37%;
 }
 
 input#maxscale {
@@ -154,6 +154,11 @@ div.data_submit {
   border: 1px solid;
   background-color: #ffffe6;
 }
+
+th#column {
+  padding: 0 22px 0 22px;
+}
+
 
 
 

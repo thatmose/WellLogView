@@ -244,7 +244,7 @@ function generateSubplotSpacing(track){
       $("<option>").val("linear").text("Linear").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","AB2567").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","AB2567").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").appendTo(line_style_select);
