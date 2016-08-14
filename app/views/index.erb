@@ -16,15 +16,35 @@
 <div class="data_submit">
   <h2>Submit a url or upload a file</h2><br>
 
-  <form method="get" action="/display" id="urlinput">
+  <form method="get" action="/display" id="urlinput" name="urlinput" onsubmit="return validateForm()">
     <input type="text" name="url" size="70" placeholder="Provide a url"><br><br>
     <input type="submit" value="Submit Link">
   </form>
 
   <h2>OR</h2>
 
-  <form action="/save_file" method="POST" enctype="multipart/form-data">
+  <form action="/save_file" method="POST" enctype="multipart/form-data" name="fileinput" onsubmit="return validateForm2()">
       <input type="file" name="file"><br><br>
       <input type="submit" value="Upload File">
   </form>
 </div>
+
+<script type="text/javascript">
+  function validateForm() {
+    var x = document.forms["urlinput"]["url"].value;
+      if (x == null || x == "") {
+          alert("url must be provided");
+          return false;
+      }
+  }  
+</script>
+
+<script type="text/javascript">
+  function validateForm2() {
+    var x = document.forms["fileinput"]["file"].value;
+      if (x == null || x == "") {
+          alert("file must be provided");
+          return false;
+      }
+  }  
+</script>
