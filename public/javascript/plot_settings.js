@@ -26,6 +26,13 @@ var margin = {
 
 var unit = ""
 
+var curves = (Object.keys(welldata.curveinfo));
+  if (welldata.curveinfo.DEPT) {
+    unit = welldata.curveinfo.DEPT.unit
+  } else {
+    unit = welldata.curveinfo.DEPTH.unit
+  }
+
 $(document).ready(function() {    
 
   var div_header = $(document.createElement('div')).attr("id","well_header").appendTo("#tab2");
@@ -187,12 +194,12 @@ function generateSubplotSpacing(track){
     generateTraces();
   }
 
-  curves = (Object.keys(welldata.curveinfo));
-  if (welldata.curveinfo.DEPT) {
-    unit = welldata.curveinfo.DEPT.unit
-  } else {
-    unit = welldata.curveinfo.DEPTH.unit
-  }
+  // curves = (Object.keys(welldata.curveinfo));
+  // if (welldata.curveinfo.DEPT) {
+  //   unit = welldata.curveinfo.DEPT.unit
+  // } else {
+  //   unit = welldata.curveinfo.DEPTH.unit
+  // }
 
   var form = document.getElementById("main_form");
   curves.forEach(function(curve){
@@ -245,9 +252,9 @@ function generateSubplotSpacing(track){
       $("<option>").val("dot").text("dot").appendTo(line_style_select);
       $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
 
-      $("<input>").attr("id","minscale").attr("value","0").attr("name","minscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","minscale").attr("value","0").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
-      $("<input>").attr("id","maxscale").attr("value","100").attr("name","maxscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","maxscale").attr("value","100").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
     }                 
 
   });
