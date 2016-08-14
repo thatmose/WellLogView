@@ -1,5 +1,6 @@
 .navbar.navbar-default.navbar-fixed-top {
   background-color: #343467;
+  margin-top: 1.5%;
 }
 
 #title {
@@ -144,6 +145,14 @@ h1 {
 table#well_header1 {
   padding-left: 5px;
   font-size: 1.3em;
+}
+
+div.data_submit {
+  width: 80%;
+  height: 300px;
+  border-radius: 5px;
+  border: 1px solid;
+  background-color: #ffffe6;
 }
 
 

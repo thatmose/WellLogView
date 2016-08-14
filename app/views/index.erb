@@ -3,10 +3,19 @@
     <h1 id="title">WellLogView</h1>
   </div>
 </nav>
+<br>
+<div id="intro">
+  <h3> This application provides a depth plot of digital well log data stored in Log Ascii Standard (LAS) format (versions 1.2 and 2).</h3> 
 
-<h2>Submit a url or upload a file</h2>
+  <h3>Provide either a url or upload a file below. When you click "Submit Link" (for url upload) or "Upload File" (for file upload) a new layout with two tabs "Display Settings" and "Log Display" will appear.</h3>
 
+  <h3>In the "Display Settings" tabbed view, some of the curves in your LAS file have been pre-selected with default properties (display track, scale type, line color, line style and the display range). You may modify these settings as you deem appropriate. When you click the "Make Plot" button, view the display in the "Log Display" tab.</h3>   
+</div>
+
+<br><br>
 <div class="data_submit">
+  <h2>Submit a url or upload a file</h2><br>
+
   <form method="get" action="/display" id="urlinput">
     <input type="text" name="url" size="70" placeholder="Provide a url"><br><br>
     <input type="submit" value="Submit Link">
