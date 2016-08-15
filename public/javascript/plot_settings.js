@@ -15,7 +15,7 @@ if (welldata.curveinfo.DEPT) {
  DEPTH = welldata.logdata['DEPTH']
 }
 // const DEPTH = welldata.logdata['DEPTH'];
-const SUBPLOT_SPACING = [ [0, .27], [.33, .43], [.48, .68] ,[.73, 1]];
+const SUBPLOT_SPACING = [ [0, .30], [.33, .35], [.40, .66] ,[.70, 1]];
 var margin = {
   l: 50,
   r: 50,
@@ -27,11 +27,11 @@ var margin = {
 var unit = ""
 
 var curves = (Object.keys(welldata.curveinfo));
-  if (welldata.curveinfo.DEPT) {
-    unit = welldata.curveinfo.DEPT.unit
-  } else {
-    unit = welldata.curveinfo.DEPTH.unit
-  }
+if (welldata.curveinfo.DEPT) {
+  unit = welldata.curveinfo.DEPT.unit
+} else {
+  unit = welldata.curveinfo.DEPTH.unit
+}
 
 $(document).ready(function() {    
 
@@ -75,6 +75,27 @@ function generateTrackXAxes(index, val, track_num){
     xaxes[index] = ['xaxis', track_num, val];
   } else {
     xaxes[index] = ['xaxis' + (index + 1), track_num, val];
+  }
+}
+
+function median(values) {
+  values.sort( function(a,b) {return a - b;} );
+  var half = Math.floor(values.length/2);
+  if(values.length % 2)
+    return values[half];
+  else
+    return (values[half-1] + values[half]) / 2.0;
+}
+
+function logMiddle(values) {
+  return values[0] * (Math.sqrt(values[1]/values[0]));
+}
+
+function getMiddle(type, scale){
+  if (type == 'log'){
+    return logMiddle(scale);
+  } else {
+    return median(scale);
   }
 }
 
@@ -127,9 +148,12 @@ function generateLayoutXAxes(){
   xaxes.forEach(function(val, index){
     layout[val[0]] = {
       linecolor: plotJSON[val[2]].color,
+      linewidth: 2,
       tickcolor: plotJSON[val[2]].color,
-      tickvals: plotJSON[val[2]].scale,
-      title: val[2],
+      tickvals: [plotJSON[val[2]].scale[0], getMiddle(plotJSON[val[2]].track_type, plotJSON[val[2]].scale), plotJSON[val[2]].scale[1]],
+      ticktext: [plotJSON[val[2]].scale[0], val[2], plotJSON[val[2]].scale[1]],
+      tickwidth: 2,
+      // title: val[2],
       side: 'top',
       showline: true,
       type: plotJSON[val[2]].track_type,
@@ -137,10 +161,11 @@ function generateLayoutXAxes(){
       domain: generateSubplotSpacing(val[1]),
       showgrid: true,
       gridwidth: 2,
-      position: positionInstructions(val[1], val[2])[0]
     };
     if (positionInstructions(val[1], val[2])[1] !== null ){
       layout[val[0]].overlaying = positionInstructions(val[1], val[2])[1];
+      layout[val[0]].showgrid = false;
+      layout[val[0]].position = positionInstructions(val[1], val[2])[0]
     };
   })
 }
@@ -298,8 +323,6 @@ function generateSubplotSpacing(track){
       }
     });
     prepForPlot(plotJSON);
-    console.log($("#track1").width());
-    console.log(layout);
     Plotly.newPlot('track1',traces,layout);
     event.preventDefault();
   });
