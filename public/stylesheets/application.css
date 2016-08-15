@@ -159,6 +159,13 @@ th#column {
   padding: 0 22px 0 22px;
 }
 
+#tab1 {
+  background-color: #ffffe6;
+  width: 55%;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
 
 
 
