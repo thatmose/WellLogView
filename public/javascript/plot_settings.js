@@ -102,7 +102,6 @@ function getMiddle(type, scale){
 function generateLayoutYAxis(){
   var depth = plotJSON['DEPTH'] || plotJSON['DEPT']
   layout.yaxis = { 
-    domain: [0.8],
     title: "Depth",
     autorange: 'reversed',
     side: 'right',
@@ -150,7 +149,9 @@ function generateLayoutXAxes(){
       linecolor: plotJSON[val[2]].color,
       linewidth: 2,
       tickcolor: plotJSON[val[2]].color,
+
       tickvals: [plotJSON[val[2]].scale[0], getMiddle(plotJSON[val[2]].track_type, plotJSON[val[2]].scale), plotJSON[val[2]].scale[1]],
+      
       ticktext: [plotJSON[val[2]].scale[0], val[2], plotJSON[val[2]].scale[1]],
       tickwidth: 2,
       // title: val[2],
