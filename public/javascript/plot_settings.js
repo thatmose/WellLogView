@@ -6,7 +6,7 @@ var traces = [];
 var trackPositions = {};
 var overlay_axis = null;
 var layout = {};
-const GRAPH_END = 0.95;
+const GRAPH_END = 0.92;
 var DEPTH = 0;
 const XAXIS_OFFSET = 0.01;
 if (welldata.curveinfo.DEPT) {
@@ -88,7 +88,10 @@ function generateLayoutYAxis(){
     range: depth.scale,
     domain: [0, GRAPH_END],
     showgrid: true,
-    gridwidth: 3
+    gridwidth: 3,
+    showline: true,
+    mirror: 'all',
+    linewidth: 2
   }
 }
 
@@ -258,6 +261,7 @@ function generateSubplotSpacing(track){
     }                 
 
   });
+
   $("<input>").attr("type","submit").attr("value","Make Plot").appendTo(form);
 
   $( "form" ).submit(function( event ) {

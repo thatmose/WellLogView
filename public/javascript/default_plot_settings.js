@@ -257,6 +257,7 @@ $(document).ready(function() {
       $("<input>").attr("id","minscale").attr("value","45").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
       $("<input>").attr("id","maxscale").attr("value","-15").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
+
     },
     dt_default_oilfield: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
