@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/thatmose/cwls-las-reader.git
-  revision: ec55d935628f5276646d038785cdb57706953cef
+  revision: 1485e37ce216f23a63d846664f3bb405ee622deb
   specs:
-    las_reader (0.0.4)
+    las_reader (0.0.5)
 
 GEM
   remote: https://rubygems.org/
