@@ -14,7 +14,19 @@
  
     <div class="tab-content">
         <div id="tab1" class="tab active">
-            <p>Change the Display Settings Here</p> 
+            <p><strong>Change the Display Settings Here</strong></p> 
+            <table id="style_headings">
+                <thead>
+                  <tr>
+                    <th id="column"> Curve</th>
+                    <th id="column"> Track</th>
+                    <th id="column"> Scale Type</th>
+                    <th id="column"> Color</th>
+                    <th id="column"> Line Style</th>
+                    <th id="column"> Display Range</th>
+                  </tr>
+                </thead>
+            </table>
         </div>
  
         <div id="tab2" class="tab">
@@ -22,6 +34,7 @@
         </div>
     </div>
 </div>
+
 <script>
     var welldata = <%= @current_well_welldata %>;
 </script>

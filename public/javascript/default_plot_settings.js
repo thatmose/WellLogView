@@ -1,3 +1,5 @@
+var start = welldata.wellinfo.start_depth;
+var stop = welldata.wellinfo.stop_depth;
 var defaults 
 $(document).ready(function() {
 
@@ -20,7 +22,7 @@ $(document).ready(function() {
       $("<option>").val("linear").text("Linear").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","20AB0F").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","20AB0F").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").appendTo(line_style_select);
@@ -28,9 +30,9 @@ $(document).ready(function() {
       $("<option>").val("dot").text("dot").appendTo(line_style_select);
       $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
 
-      $("<input>").attr("id","minscale").attr("value","0").attr("name","minscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","minscale").attr("value","0").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
-      $("<input>").attr("id","maxscale").attr("value","150").attr("name","maxscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","maxscale").attr("value","150").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
     },
     cali_default_oilfield: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -48,7 +50,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","0960AB").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","0960AB").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").appendTo(line_style_select);
@@ -56,9 +58,9 @@ $(document).ready(function() {
       $("<option>").val("dot").text("dot").appendTo(line_style_select);
       $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
 
-      $("<input>").attr("id","minscale").attr("value","6").attr("name","minscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","minscale").attr("value","6").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
-      $("<input>").attr("id","maxscale").attr("value","16").attr("name","maxscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","maxscale").attr("value","16").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
     },
     cali_default_metric: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -76,7 +78,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","0960AB").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","0960AB").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").appendTo(line_style_select);
@@ -84,9 +86,9 @@ $(document).ready(function() {
       $("<option>").val("dot").text("dot").appendTo(line_style_select);
       $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
 
-      $("<input>").attr("id","minscale").attr("value","150").attr("name","minscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","minscale").attr("value","150").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
-      $("<input>").attr("id","maxscale").attr("value","410").attr("name","maxscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","maxscale").attr("value","410").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
     },
     rhob_default_oilfield: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -104,7 +106,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","E3300E").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","E3300E").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").attr("selected","selected").appendTo(line_style_select);
@@ -112,9 +114,9 @@ $(document).ready(function() {
       $("<option>").val("dot").text("dot").appendTo(line_style_select);
       $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
 
-      $("<input>").attr("id","minscale").attr("value","1.95").attr("name","minscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","minscale").attr("value","1.95").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
-      $("<input>").attr("id","maxscale").attr("value","2.95").attr("name","maxscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","maxscale").attr("value","2.95").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
     },
     rhob_default_metric: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -132,7 +134,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","E3300E").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","E3300E").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").attr("selected","selected").appendTo(line_style_select);
@@ -140,9 +142,9 @@ $(document).ready(function() {
       $("<option>").val("dot").text("dot").appendTo(line_style_select);
       $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
 
-      $("<input>").attr("id","minscale").attr("value","1950").attr("name","minscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","minscale").attr("value","1950").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
-      $("<input>").attr("id","maxscale").attr("value","2950").attr("name","maxscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","maxscale").attr("value","2950").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
     },
     ild_default: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -160,7 +162,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").attr("selected","selected").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","E3300E").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","E3300E").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").attr("selected","selected").appendTo(line_style_select);
@@ -168,9 +170,9 @@ $(document).ready(function() {
       $("<option>").val("dot").text("dot").appendTo(line_style_select);
       $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
 
-      $("<input>").attr("id","minscale").attr("value","0.2").attr("name","minscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","minscale").attr("value","0.2").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
-      $("<input>").attr("id","maxscale").attr("value","2000").attr("name","maxscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","maxscale").attr("value","2000").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
     },
     ilm_default: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -188,7 +190,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").attr("selected","selected").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","0960AB").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","0960AB").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").appendTo(line_style_select);
@@ -196,9 +198,9 @@ $(document).ready(function() {
       $("<option>").val("dot").text("dot").appendTo(line_style_select);
       $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
 
-      $("<input>").attr("id","minscale").attr("value","0.2").attr("name","minscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","minscale").attr("value","0.2").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
-      $("<input>").attr("id","maxscale").attr("value","2000").attr("name","maxscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","maxscale").attr("value","2000").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
     },
     sfl_default: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -216,7 +218,7 @@ $(document).ready(function() {
       $("<option>").val("linear").text("Linear").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").attr("selected","selected").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","20AB0F").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","20AB0F").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").appendTo(line_style_select);
@@ -224,9 +226,9 @@ $(document).ready(function() {
       $("<option>").val("dot").text("dot").attr("selected","selected").appendTo(line_style_select);
       $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
 
-      $("<input>").attr("id","minscale").attr("value","0.2").attr("name","minscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","minscale").attr("value","0.2").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
-      $("<input>").attr("id","maxscale").attr("value","2000").attr("name","maxscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","maxscale").attr("value","2000").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
     },
     nphi_default: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -244,7 +246,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").attr("selected","selected").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","0960AB").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","0960AB").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").appendTo(line_style_select);
@@ -252,9 +254,10 @@ $(document).ready(function() {
       $("<option>").val("dot").text("dot").appendTo(line_style_select);
       $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
 
-      $("<input>").attr("id","minscale").attr("value","45").attr("name","minscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","minscale").attr("value","45").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
-      $("<input>").attr("id","maxscale").attr("value","-15").attr("name","maxscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","maxscale").attr("value","-15").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
+
     },
     dt_default_oilfield: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -272,7 +275,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").attr("selected","selected").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","20AB0F").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","20AB0F").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").attr("selected","selected").appendTo(line_style_select);
@@ -280,9 +283,9 @@ $(document).ready(function() {
       $("<option>").val("dot").text("dot").appendTo(line_style_select);
       $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
 
-      $("<input>").attr("id","minscale").attr("value","140").attr("name","minscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","minscale").attr("value","140").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
-      $("<input>").attr("id","maxscale").attr("value","40").attr("name","maxscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","maxscale").attr("value","40").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
     },
     dt_default_metric: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -300,7 +303,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").attr("selected","selected").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","20AB0F").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","20AB0F").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").attr("selected","selected").appendTo(line_style_select);
@@ -308,9 +311,9 @@ $(document).ready(function() {
       $("<option>").val("dot").text("dot").appendTo(line_style_select);
       $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
 
-      $("<input>").attr("id","minscale").attr("value","500").attr("name","minscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","minscale").attr("value","500").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
-      $("<input>").attr("id","maxscale").attr("value","100").attr("name","maxscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","maxscale").attr("value","100").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
     },
     pef_default: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -328,7 +331,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").attr("selected","selected").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","050203").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","050203").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").appendTo(line_style_select);
@@ -336,9 +339,9 @@ $(document).ready(function() {
       $("<option>").val("dot").text("dot").appendTo(line_style_select);
       $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
 
-      $("<input>").attr("id","minscale").attr("value","0").attr("name","minscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","minscale").attr("value","0").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
-      $("<input>").attr("id","maxscale").attr("value","10").attr("name","maxscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","maxscale").attr("value","10").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
     },
     depth_default: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -356,7 +359,7 @@ $(document).ready(function() {
       $("<option>").val("Linear").text("Linear").attr("selected","selected").appendTo(scale_type_select);
       $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","0A0206").attr("size","2").attr("name","color"+curve).appendTo(div);
+      $("<input>").attr("class","jscolor").attr("value","0A0206").attr("size","7").attr("name","color"+curve).appendTo(div);
 
       var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
       $("<option>").val("solid").text("solid").appendTo(line_style_select);
@@ -364,9 +367,9 @@ $(document).ready(function() {
       $("<option>").val("dot").text("dot").attr("selected","selected").appendTo(line_style_select);
       $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
 
-      $("<input>").attr("id","minscale").attr("value","0").attr("name","minscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","minscale").attr("value",start).attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
-      $("<input>").attr("id","maxscale").attr("value","15000").attr("name","maxscale"+curve).attr("size","5").appendTo(div);
+      $("<input>").attr("id","maxscale").attr("value",stop).attr("name","maxscale"+curve).attr("size","6").appendTo(div);
     }                                       
   }   
 });

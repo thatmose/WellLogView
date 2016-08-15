@@ -1,5 +1,6 @@
 .navbar.navbar-default.navbar-fixed-top {
   background-color: #343467;
+  margin-top: 1.5%;
 }
 
 #title {
@@ -65,7 +66,7 @@
 
 select#curve_track {
   position: fixed;
-  left: 10%;
+  left: 9%;
 }
 
 select#scale_type {
@@ -80,13 +81,13 @@ input.jscolor {
 
 select#line_type {
   position: fixed;
-  left: 27%;
+  left: 29.3%;
   text-align: center;
 }
 
 input#minscale {
   position: fixed;
-  left: 38%;
+  left: 37%;
 }
 
 input#maxscale {
@@ -145,6 +146,26 @@ table#well_header1 {
   padding-left: 5px;
   font-size: 1.3em;
 }
+
+div.data_submit {
+  width: 45%;
+  height: 300px;
+  border-radius: 5px;
+  border: 1px solid;
+  background-color: #ffffe6;
+}
+
+th#column {
+  padding: 0 22px 0 22px;
+}
+
+#tab1 {
+  background-color: #ffffe6;
+  width: 55%;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
 
 
 
