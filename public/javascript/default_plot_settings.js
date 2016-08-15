@@ -254,9 +254,9 @@ $(document).ready(function() {
       $("<option>").val("dot").text("dot").appendTo(line_style_select);
       $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
 
-      $("<input>").attr("id","minscale").attr("value","45").attr("name","minscale"+curve).attr("size","6").appendTo(div);
+      $("<input>").attr("id","minscale").attr("value","-15").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
-      $("<input>").attr("id","maxscale").attr("value","-15").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
+      $("<input>").attr("id","maxscale").attr("value","45").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
 
     },
     dt_default_oilfield: function(curve){
@@ -283,9 +283,9 @@ $(document).ready(function() {
       $("<option>").val("dot").text("dot").appendTo(line_style_select);
       $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
 
-      $("<input>").attr("id","minscale").attr("value","140").attr("name","minscale"+curve).attr("size","6").appendTo(div);
+      $("<input>").attr("id","minscale").attr("value","40").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
-      $("<input>").attr("id","maxscale").attr("value","40").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
+      $("<input>").attr("id","maxscale").attr("value","140").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
     },
     dt_default_metric: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -311,9 +311,9 @@ $(document).ready(function() {
       $("<option>").val("dot").text("dot").appendTo(line_style_select);
       $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
 
-      $("<input>").attr("id","minscale").attr("value","500").attr("name","minscale"+curve).attr("size","6").appendTo(div);
+      $("<input>").attr("id","minscale").attr("value","100").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
-      $("<input>").attr("id","maxscale").attr("value","100").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
+      $("<input>").attr("id","maxscale").attr("value","500").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
     },
     pef_default: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
