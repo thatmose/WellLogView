@@ -9,31 +9,33 @@ require_relative 'well'
     erb :index
   end
 
-  get '/display/?:filename?' do
-    if params[:url]
-      content_type :html
-      @url = params[:url]
-      uri = URI(@url)
-      @filename = (/[^\/]*$/.match(@url))
-      File.open("#{@filename}", "w") {|f| f.write(Net::HTTP.get(uri)) }
-    else
-      @filename = params[:filename]
-    end
-    
-    @worklas = CWLSLas.new("#{@filename}")
-    @current_well = Well.new(@worklas)
-    #Write to json file
-    File.open("#{@filename}.json", "w") {|f| f.write(@current_well.welldata.to_json) }
-    
-    @current_well_welldata = @current_well.welldata.to_json
-    
+  get '/display/:filename' do
+    @filename = params[:filename]
+
+    #Read json file and send data
+    @current_well_welldata = File.read("#{@filename}.json")
+
     erb :display
   end
 
   post '/save_file' do
-    content_type :json
-    @filename = params[:file][:filename]
-    File.open("#{@filename}", "w") { |f| f.write(params[:file][:tempfile].read) }
+    if params[:file]
+      @filename = params[:file][:filename]
+      File.open("#{@filename}", "w") { |f| f.write(params[:file][:tempfile].read) }
+    elsif params[:url]
+      @url = params[:url]
+      uri = URI(@url)
+      @filename = (/[^\/]*$/.match(@url))
+      File.open("#{@filename}", "w") {|f| f.write(Net::HTTP.get(uri)) }
+    end
+
+    @worklas = CWLSLas.new("#{@filename}")
+    @current_well = Well.new(@worklas)
+    #Write to json file
+    File.open("#{@filename}.json", "w") {|f| f.write(@current_well.welldata.to_json) }
+    #Delete LAS file only (keep the json file)
+    File.unlink("#{@filename}")
+
     redirect "/display/#{@filename}"
   end
 
