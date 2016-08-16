@@ -46,11 +46,11 @@ $(document).ready(function() {
       defaults.gr_default(curve)
     } else if ((curve == "DEPT") || (curve == 'DEPTH')) {
       defaults.depth_default(curve)
-    } else if (((curve == "CALI") || (curve == "CALS") || (curve == "HCAL")) && (unit=="F")) {
+    } else if (((curve == "CALI") || (curve == "CALS") || (curve == "HCAL")) && ((unit=="F") || (unit=="FT"))) {
       defaults.cali_default_oilfield(curve)
     } else if (((curve == "CALI") || (curve == "CALS") || (curve == "HCAL")) && (unit=="M")) {
       defaults.cali_default_metric(curve)
-    } else if (((curve == "RHOB") || (curve == "RHOZ") || (curve == "DEN")) && (unit=="F")) {
+    } else if (((curve == "RHOB") || (curve == "RHOZ") || (curve == "DEN")) && ((unit=="F") || (unit=="FT"))) {
       defaults.rhob_default_oilfield(curve)
     } else if (((curve == "RHOB") || (curve == "RHOZ") || (curve == "DEN")) && (unit=="M")) {
       defaults.rhob_default_metric(curve) 
@@ -62,7 +62,7 @@ $(document).ready(function() {
       defaults.sfl_default(curve)
     } else if ((curve == "CNS") || (curve == "NPHI") || (curve == "NPSS")) {
       defaults.nphi_default(curve)
-    } else if (((curve == "DT") || (curve == "DTCO") || (curve == "AC")) && (unit=="F")) {
+    } else if (((curve == "DT") || (curve == "DTCO") || (curve == "AC")) && ((unit=="F") || (unit=="FT"))) {
       defaults.dt_default_oilfield(curve)
     } else if (((curve == "DT") || (curve == "DTCO") || (curve == "AC")) && (unit=="M")) {
       defaults.dt_default_metric(curve) 
