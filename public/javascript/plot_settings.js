@@ -41,58 +41,60 @@ $(document).ready(function() {
 
   var form = document.getElementById("main_form");
   curves.forEach(function(curve){
-    var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
-    if (curve == "GR") {
-      defaults.gr_default(curve)
-    } else if ((curve == "DEPT") || (curve == 'DEPTH')) {
-      defaults.depth_default(curve)
-    } else if (((curve == "CALI") || (curve == "CALS") || (curve == "HCAL")) && ((unit=="F") || (unit=="FT"))) {
-      defaults.cali_default_oilfield(curve)
-    } else if (((curve == "CALI") || (curve == "CALS") || (curve == "HCAL")) && (unit=="M")) {
-      defaults.cali_default_metric(curve)
-    } else if (((curve == "RHOB") || (curve == "RHOZ") || (curve == "DEN")) && ((unit=="F") || (unit=="FT"))) {
-      defaults.rhob_default_oilfield(curve)
-    } else if (((curve == "RHOB") || (curve == "RHOZ") || (curve == "DEN")) && (unit=="M")) {
-      defaults.rhob_default_metric(curve) 
-    } else if ((curve == "ILD") || (curve == 'LLD') || (curve == 'RT')) {
-      defaults.ild_default(curve)
-    } else if ((curve == "ILM") || (curve == 'LLS') || (curve == 'AT30')) {
-      defaults.ilm_default(curve)
-    } else if ((curve == "SFL") || (curve == "MSFL") || (curve == "SFLU")) {
-      defaults.sfl_default(curve)
-    } else if ((curve == "CNS") || (curve == "NPHI") || (curve == "NPSS")) {
-      defaults.nphi_default(curve)
-    } else if (((curve == "DT") || (curve == "DTCO") || (curve == "AC")) && ((unit=="F") || (unit=="FT"))) {
-      defaults.dt_default_oilfield(curve)
-    } else if (((curve == "DT") || (curve == "DTCO") || (curve == "AC")) && (unit=="M")) {
-      defaults.dt_default_metric(curve) 
-    } else if ((curve == "PEF") || (curve == "PEFZ")) {
-      defaults.pef_default(curve)
-    } else {
-      $("<input>").attr("type","checkbox").attr("id",curve).attr("name",curve).attr("value",curve).attr("text",curve).appendTo(div);
+    if ((curve != "DEPTH") && (curve != "DEPT")) {
+      var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
+      if (curve == "GR") {
+        defaults.gr_default(curve)
+      } else if ((curve == "DEPT") || (curve == 'DEPTH')) {
+        defaults.depth_default(curve)
+      } else if (((curve == "CALI") || (curve == "CALS") || (curve == "HCAL")) && ((unit=="F") || (unit=="FT"))) {
+        defaults.cali_default_oilfield(curve)
+      } else if (((curve == "CALI") || (curve == "CALS") || (curve == "HCAL")) && (unit=="M")) {
+        defaults.cali_default_metric(curve)
+      } else if (((curve == "RHOB") || (curve == "RHOZ") || (curve == "DEN")) && ((unit=="F") || (unit=="FT"))) {
+        defaults.rhob_default_oilfield(curve)
+      } else if (((curve == "RHOB") || (curve == "RHOZ") || (curve == "DEN")) && (unit=="M")) {
+        defaults.rhob_default_metric(curve) 
+      } else if ((curve == "ILD") || (curve == 'LLD') || (curve == 'RT')) {
+        defaults.ild_default(curve)
+      } else if ((curve == "ILM") || (curve == 'LLS') || (curve == 'AT30')) {
+        defaults.ilm_default(curve)
+      } else if ((curve == "SFL") || (curve == "MSFL") || (curve == "SFLU")) {
+        defaults.sfl_default(curve)
+      } else if ((curve == "CNS") || (curve == "NPHI") || (curve == "NPSS")) {
+        defaults.nphi_default(curve)
+      } else if (((curve == "DT") || (curve == "DTCO") || (curve == "AC")) && ((unit=="F") || (unit=="FT"))) {
+        defaults.dt_default_oilfield(curve)
+      } else if (((curve == "DT") || (curve == "DTCO") || (curve == "AC")) && (unit=="M")) {
+        defaults.dt_default_metric(curve) 
+      } else if ((curve == "PEF") || (curve == "PEFZ")) {
+        defaults.pef_default(curve)
+      } else {
+        $("<input>").attr("type","checkbox").attr("id",curve).attr("name",curve).attr("value",curve).attr("text",curve).appendTo(div);
 
-      $("<label>").attr("for",curve).text(curve).appendTo(div); 
-      var track_select = $(document.createElement('select')).attr("id","curve_track").attr("name","curve_track"+curve).appendTo(div);
-      $("<option>").val("1").text("1").appendTo(track_select);
-      $("<option>").val("2").text("2").appendTo(track_select);
-      $("<option>").val("3").text("3").appendTo(track_select);
-      $("<option>").val("4").text("4").appendTo(track_select);
+        $("<label>").attr("for",curve).text(curve).appendTo(div); 
+        var track_select = $(document.createElement('select')).attr("id","curve_track").attr("name","curve_track"+curve).appendTo(div);
+        $("<option>").val("1").text("1").appendTo(track_select);
+        $("<option>").val("2").text("2").appendTo(track_select);
+        $("<option>").val("3").text("3").appendTo(track_select);
+        $("<option>").val("4").text("4").appendTo(track_select);
 
-      var scale_type_select = $(document.createElement('select')).attr("id","scale_type").attr("name","scale_type"+curve).appendTo(div);
-      $("<option>").val("linear").text("Linear").appendTo(scale_type_select);
-      $("<option>").val("log").text("Log").appendTo(scale_type_select);
+        var scale_type_select = $(document.createElement('select')).attr("id","scale_type").attr("name","scale_type"+curve).appendTo(div);
+        $("<option>").val("linear").text("Linear").appendTo(scale_type_select);
+        $("<option>").val("log").text("Log").appendTo(scale_type_select);
 
-      $("<input>").attr("class","jscolor").attr("value","AB2567").attr("size","7").attr("name","color"+curve).appendTo(div);
+        $("<input>").attr("class","jscolor").attr("value","AB2567").attr("size","7").attr("name","color"+curve).appendTo(div);
 
-      var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
-      $("<option>").val("solid").text("solid").appendTo(line_style_select);
-      $("<option>").val("dash").text("dash").appendTo(line_style_select);
-      $("<option>").val("dot").text("dot").appendTo(line_style_select);
-      $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
+        var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
+        $("<option>").val("solid").text("solid").appendTo(line_style_select);
+        $("<option>").val("dash").text("dash").appendTo(line_style_select);
+        $("<option>").val("dot").text("dot").appendTo(line_style_select);
+        $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
 
-      $("<input>").attr("id","minscale").attr("value","0").attr("name","minscale"+curve).attr("size","6").appendTo(div);
+        $("<input>").attr("id","minscale").attr("value","0").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
-      $("<input>").attr("id","maxscale").attr("value","100").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
+        $("<input>").attr("id","maxscale").attr("value","100").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
+      }
     }                 
 
   });
