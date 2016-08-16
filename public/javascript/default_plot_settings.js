@@ -14,7 +14,7 @@ $(document).ready(function() {
       $("<label>").attr("for",curve).text(curve).appendTo(div); 
       var track_select = $(document.createElement('select')).attr("id","curve_track").attr("name","curve_track"+curve).appendTo(div);
       $("<option>").val("1").text("1").attr("selected","selected").appendTo(track_select);
-      $("<option>").val("2").text("2").appendTo(track_select);
+      // $("<option>").val("2").text("2").appendTo(track_select);
       $("<option>").val("3").text("3").appendTo(track_select);
       $("<option>").val("4").text("4").appendTo(track_select);
 
@@ -42,7 +42,7 @@ $(document).ready(function() {
       $("<label>").attr("for",curve).text(curve).appendTo(div); 
       var track_select = $(document.createElement('select')).attr("id","curve_track").attr("name","curve_track"+curve).appendTo(div);
       $("<option>").val("1").text("1").attr("selected","selected").appendTo(track_select);
-      $("<option>").val("2").text("2").appendTo(track_select);
+      // $("<option>").val("2").text("2").appendTo(track_select);
       $("<option>").val("3").text("3").appendTo(track_select);
       $("<option>").val("4").text("4").appendTo(track_select);
 
@@ -70,7 +70,7 @@ $(document).ready(function() {
       $("<label>").attr("for",curve).text(curve).appendTo(div); 
       var track_select = $(document.createElement('select')).attr("id","curve_track").attr("name","curve_track"+curve).appendTo(div);
       $("<option>").val("1").text("1").attr("selected","selected").appendTo(track_select);
-      $("<option>").val("2").text("2").appendTo(track_select);
+      // $("<option>").val("2").text("2").appendTo(track_select);
       $("<option>").val("3").text("3").appendTo(track_select);
       $("<option>").val("4").text("4").appendTo(track_select);
 
@@ -98,7 +98,7 @@ $(document).ready(function() {
       $("<label>").attr("for",curve).text(curve).appendTo(div); 
       var track_select = $(document.createElement('select')).attr("id","curve_track").attr("name","curve_track"+curve).appendTo(div);
       $("<option>").val("1").text("1").appendTo(track_select);
-      $("<option>").val("2").text("2").appendTo(track_select);
+      // $("<option>").val("2").text("2").appendTo(track_select);
       $("<option>").val("3").text("3").appendTo(track_select);
       $("<option>").val("4").text("4").attr("selected","selected").appendTo(track_select);
 
@@ -126,7 +126,7 @@ $(document).ready(function() {
       $("<label>").attr("for",curve).text(curve).appendTo(div); 
       var track_select = $(document.createElement('select')).attr("id","curve_track").attr("name","curve_track"+curve).appendTo(div);
       $("<option>").val("1").text("1").appendTo(track_select);
-      $("<option>").val("2").text("2").appendTo(track_select);
+      // $("<option>").val("2").text("2").appendTo(track_select);
       $("<option>").val("3").text("3").appendTo(track_select);
       $("<option>").val("4").text("4").attr("selected","selected").appendTo(track_select);
 
@@ -154,7 +154,7 @@ $(document).ready(function() {
       $("<label>").attr("for",curve).text(curve).appendTo(div); 
       var track_select = $(document.createElement('select')).attr("id","curve_track").attr("name","curve_track"+curve).appendTo(div);
       $("<option>").val("1").text("1").appendTo(track_select);
-      $("<option>").val("2").text("2").appendTo(track_select);
+      // $("<option>").val("2").text("2").appendTo(track_select);
       $("<option>").val("3").text("3").attr("selected","selected").appendTo(track_select);
       $("<option>").val("4").text("4").appendTo(track_select);
 
@@ -182,7 +182,7 @@ $(document).ready(function() {
       $("<label>").attr("for",curve).text(curve).appendTo(div); 
       var track_select = $(document.createElement('select')).attr("id","curve_track").attr("name","curve_track"+curve).appendTo(div);
       $("<option>").val("1").text("1").appendTo(track_select);
-      $("<option>").val("2").text("2").appendTo(track_select);
+      // $("<option>").val("2").text("2").appendTo(track_select);
       $("<option>").val("3").text("3").attr("selected","selected").appendTo(track_select);
       $("<option>").val("4").text("4").appendTo(track_select);
 
@@ -210,7 +210,7 @@ $(document).ready(function() {
       $("<label>").attr("for",curve).text(curve).appendTo(div); 
       var track_select = $(document.createElement('select')).attr("id","curve_track").attr("name","curve_track"+curve).appendTo(div);
       $("<option>").val("1").text("1").appendTo(track_select);
-      $("<option>").val("2").text("2").appendTo(track_select);
+      // $("<option>").val("2").text("2").appendTo(track_select);
       $("<option>").val("3").text("3").attr("selected","selected").appendTo(track_select);
       $("<option>").val("4").text("4").appendTo(track_select);
 
@@ -238,7 +238,7 @@ $(document).ready(function() {
       $("<label>").attr("for",curve).text(curve).appendTo(div); 
       var track_select = $(document.createElement('select')).attr("id","curve_track").attr("name","curve_track"+curve).appendTo(div);
       $("<option>").val("1").text("1").appendTo(track_select);
-      $("<option>").val("2").text("2").appendTo(track_select);
+      // $("<option>").val("2").text("2").appendTo(track_select);
       $("<option>").val("3").text("3").appendTo(track_select);
       $("<option>").val("4").text("4").attr("selected","selected").appendTo(track_select);
 
@@ -267,7 +267,7 @@ $(document).ready(function() {
       $("<label>").attr("for",curve).text(curve).appendTo(div); 
       var track_select = $(document.createElement('select')).attr("id","curve_track").attr("name","curve_track"+curve).appendTo(div);
       $("<option>").val("1").text("1").appendTo(track_select);
-      $("<option>").val("2").text("2").appendTo(track_select);
+      // $("<option>").val("2").text("2").appendTo(track_select);
       $("<option>").val("3").text("3").appendTo(track_select);
       $("<option>").val("4").text("4").attr("selected","selected").appendTo(track_select);
 
@@ -295,7 +295,7 @@ $(document).ready(function() {
       $("<label>").attr("for",curve).text(curve).appendTo(div); 
       var track_select = $(document.createElement('select')).attr("id","curve_track").attr("name","curve_track"+curve).appendTo(div);
       $("<option>").val("1").text("1").appendTo(track_select);
-      $("<option>").val("2").text("2").appendTo(track_select);
+      // $("<option>").val("2").text("2").appendTo(track_select);
       $("<option>").val("3").text("3").appendTo(track_select);
       $("<option>").val("4").text("4").attr("selected","selected").appendTo(track_select);
 
@@ -323,7 +323,7 @@ $(document).ready(function() {
       $("<label>").attr("for",curve).text(curve).appendTo(div); 
       var track_select = $(document.createElement('select')).attr("id","curve_track").attr("name","curve_track"+curve).appendTo(div);
       $("<option>").val("1").text("1").appendTo(track_select);
-      $("<option>").val("2").text("2").appendTo(track_select);
+      // $("<option>").val("2").text("2").appendTo(track_select);
       $("<option>").val("3").text("3").appendTo(track_select);
       $("<option>").val("4").text("4").attr("selected","selected").appendTo(track_select);
 
