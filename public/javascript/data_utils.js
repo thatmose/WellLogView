@@ -114,12 +114,12 @@ function init(){
  * Creates the yaxis for the plot. In this case it is always the depth data used for generating the yaxis. Accesses global variables.
  */
  function generateLayoutYAxis(){
-  var depth = plotJSON['DEPTH'] || plotJSON['DEPT']
+  // var depth = plotJSON['DEPTH'] || plotJSON['DEPT']
   myData.layout.yaxis = { 
     title: "Depth",
     autorange: 'reversed',
     side: 'right',
-    range: depth.scale,
+    // range: depth.scale,
     domain: [0, GRAPH_END],
     showgrid: true,
     gridwidth: 3,
@@ -129,7 +129,7 @@ function init(){
     position: 0.33,
 
     ticklen: 4,
-    tick0: depth.scale[0],
+    // tick0: depth.scale[0],
     nticks: 20,
   }
 }
