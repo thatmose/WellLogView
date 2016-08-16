@@ -45,8 +45,6 @@ $(document).ready(function() {
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
       if (curve == "GR") {
         defaults.gr_default(curve)
-      } else if ((curve == "DEPT") || (curve == 'DEPTH')) {
-        defaults.depth_default(curve)
       } else if (((curve == "CALI") || (curve == "CALS") || (curve == "HCAL")) && ((unit=="F") || (unit=="FT"))) {
         defaults.cali_default_oilfield(curve)
       } else if (((curve == "CALI") || (curve == "CALS") || (curve == "HCAL")) && (unit=="M")) {

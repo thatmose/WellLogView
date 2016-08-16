@@ -342,35 +342,7 @@ $(document).ready(function() {
       $("<input>").attr("id","minscale").attr("value","0").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
       $("<input>").attr("id","maxscale").attr("value","10").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
-    },
-    depth_default: function(curve){
-      var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
-      
-      $("<input>").attr("type","checkbox").attr("id",curve).attr("name",curve).attr("value",curve).attr("text",curve).attr("checked","checked").appendTo(div);
-    
-      $("<label>").attr("for",curve).text(curve).appendTo(div); 
-      var track_select = $(document.createElement('select')).attr("id","curve_track").attr("name","curve_track"+curve).appendTo(div);
-      $("<option>").val("1").text("1").appendTo(track_select);
-      $("<option>").val("2").text("2").attr("selected","selected").appendTo(track_select);
-      $("<option>").val("3").text("3").appendTo(track_select);
-      $("<option>").val("4").text("4").appendTo(track_select);
-
-      var scale_type_select = $(document.createElement('select')).attr("id","scale_type").attr("name","scale_type"+curve).appendTo(div);
-      $("<option>").val("Linear").text("Linear").attr("selected","selected").appendTo(scale_type_select);
-      $("<option>").val("log").text("Log").appendTo(scale_type_select);
-
-      $("<input>").attr("class","jscolor").attr("value","0A0206").attr("size","7").attr("name","color"+curve).appendTo(div);
-
-      var line_style_select = $(document.createElement('select')).attr("id","line_type").attr("name","line_type"+curve).appendTo(div);
-      $("<option>").val("solid").text("solid").appendTo(line_style_select);
-      $("<option>").val("dash").text("dash").appendTo(line_style_select);
-      $("<option>").val("dot").text("dot").attr("selected","selected").appendTo(line_style_select);
-      $("<option>").val("dashdot").text("dashdot").appendTo(line_style_select);
-
-      $("<input>").attr("id","minscale").attr("value",start).attr("name","minscale"+curve).attr("size","6").appendTo(div);
-
-      $("<input>").attr("id","maxscale").attr("value",stop).attr("name","maxscale"+curve).attr("size","6").appendTo(div);
-    }                                       
+    }                     
   }   
 });
 
