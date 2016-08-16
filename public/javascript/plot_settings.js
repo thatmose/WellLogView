@@ -1,28 +1,12 @@
-var myData = [];
 var plotCurves = [];
 var plotJSON = {};
-var xaxes = [];
-var traces = [];
-var trackPositions = {};
-var overlay_axis = null;
-var layout = {};
-const GRAPH_END = 0.92;
-var DEPTH = 0;
-const XAXIS_OFFSET = 0.01;
+var myData;
+var DEPTH;
 if (welldata.curveinfo.DEPT) {
  DEPTH = welldata.logdata['DEPT']
 } else {
  DEPTH = welldata.logdata['DEPTH']
 }
-// const DEPTH = welldata.logdata['DEPTH'];
-const SUBPLOT_SPACING = [ [0, .30], [.33, .35], [.40, .66] ,[.70, 1]];
-var margin = {
-  l: 50,
-  r: 50,
-  b: 0,
-  t: 50,
-  pad: 4
-};
 
 var unit = ""
 
@@ -54,181 +38,6 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-
-// Takes an input of a number and returns the log (base 10)
-function generateLogRange(num){
-  if (num == 0)
-    num = 0.001;
-  return Math.log10(num);
-}
-
-function generateTraceXAxes(index, val){
-  if (index == 0){
-    plotJSON[val].xaxis = "x";
-  } else {
-    plotJSON[val].xaxis = "x" + (index + 1);
-  }
-}
-
-function generateTrackXAxes(index, val, track_num){
-  if (index == 0){
-    xaxes[index] = ['xaxis', track_num, val];
-  } else {
-    xaxes[index] = ['xaxis' + (index + 1), track_num, val];
-  }
-}
-
-function median(values) {
-  values.sort( function(a,b) {return a - b;} );
-  var half = Math.floor(values.length/2);
-  if(values.length % 2)
-    return values[half];
-  else
-    return (values[half-1] + values[half]) / 2.0;
-}
-
-function logMiddle(values) {
-  return values[0] * (Math.sqrt(values[1]/values[0]));
-}
-
-function getMiddle(type, scale){
-  if (type == 'log'){
-    return logMiddle(scale);
-  } else {
-    return median(scale);
-  }
-}
-
-function generateLayoutYAxis(){
-  var depth = plotJSON['DEPTH'] || plotJSON['DEPT']
-  layout.yaxis = { 
-    title: "Depth",
-    autorange: 'reversed',
-    side: 'right',
-    range: depth.scale,
-    domain: [0, GRAPH_END],
-    showgrid: true,
-    gridwidth: 3,
-    showline: true,
-    mirror: 'all',
-    linewidth: 2
-  }
-}
-
-function setTrackPositions(track_num, val){
-  if (typeof trackPositions[track_num] === 'undefined'){
-    trackPositions[track_num] = [[val, 1]];
-  } else {
-    pos = trackPositions[track_num].length;
-    trackPositions[track_num].push([val, pos + 1]);
-  };
-}
-
-function positionInstructions(track_num, curve_name){
-  pos_info = trackPositions[track_num].filter(function(arr){
-    return arr[0] === curve_name;
-  });
-  axis_gap = (1 - GRAPH_END)/trackPositions[track_num].length;
-  position = XAXIS_OFFSET + GRAPH_END + (pos_info[0][1] - 1) * axis_gap;
-  // if position on track is not 1, hence pos > 1
-  if (pos_info[0][1] !== 1){
-    result = trackPositions[track_num].filter(function(arr){
-      return arr[1] === 1;
-    });
-    overlay_axis = plotJSON[result[0][0]].xaxis;
-  } else {
-    overlay_axis = null;
-  }
-
-  return [position, overlay_axis];
-}
-
-function generateLayoutXAxes(){
-  xaxes.forEach(function(val, index){
-    layout[val[0]] = {
-      linecolor: plotJSON[val[2]].color,
-      linewidth: 2,
-      tickcolor: plotJSON[val[2]].color,
-
-      tickvals: [plotJSON[val[2]].scale[0], getMiddle(plotJSON[val[2]].track_type, plotJSON[val[2]].scale), plotJSON[val[2]].scale[1]],
-      
-      ticktext: [plotJSON[val[2]].scale[0], val[2], plotJSON[val[2]].scale[1]],
-      tickwidth: 2,
-      // title: val[2],
-      side: 'top',
-      showline: true,
-      type: plotJSON[val[2]].track_type,
-      range: (plotJSON[val[2]].track_type == "log") ? plotJSON[val[2]].scale.map(generateLogRange) : plotJSON[val[2]].scale,
-      domain: generateSubplotSpacing(val[1]),
-      showgrid: true,
-      gridwidth: 2,
-    };
-    if (positionInstructions(val[1], val[2])[1] !== null ){
-      layout[val[0]].overlaying = positionInstructions(val[1], val[2])[1];
-      layout[val[0]].showgrid = false;
-      layout[val[0]].position = positionInstructions(val[1], val[2])[0]
-    };
-  })
-}
-
-function generateTraces(){
-  plotCurves.forEach(function(val, index){
-    traces[index] = {
-      name: val,
-      x: welldata.logdata[val],
-      y: DEPTH,
-      type: 'scatter',
-      xaxis: plotJSON[val].xaxis,
-      yaxis: 'y',
-      line: {
-        color: plotJSON[val].color,
-        dash: plotJSON[val].line_style,
-      }, 
-    };
-  });
-}
-
-function generateSubplotSpacing(track){
-  track_index = parseFloat(track) - 1;
-  return SUBPLOT_SPACING[track_index];
-}
-  // Not yet used
-  // function generateAxisPosition(graph_end, num){
-  //   result = [];
-  //   axis_gap = (1 - graph_end) / num;
-  //   i = 0;
-  //   while ( i < num ){
-  //     result.push(graph_end + axis_gap * i);
-  //     i++;
-  //   }
-  //   return result;
-  // }
-
-  function prepForPlot(plotObj){
-    var track = {
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0
-    };
-    Object.keys(plotObj).forEach(function(val, index){
-      track_num = plotObj[val].track;
-      track[track_num] += 1;
-      generateTraceXAxes(index, val);
-      generateTrackXAxes(index, val, track_num);
-      setTrackPositions(track_num, val);
-    });
-    generateLayoutYAxis();
-    generateLayoutXAxes();
-    generateTraces();
-  }
-
-  // curves = (Object.keys(welldata.curveinfo));
-  // if (welldata.curveinfo.DEPT) {
-  //   unit = welldata.curveinfo.DEPT.unit
-  // } else {
-  //   unit = welldata.curveinfo.DEPTH.unit
-  // }
 
   var form = document.getElementById("main_form");
   curves.forEach(function(curve){
@@ -291,17 +100,6 @@ function generateSubplotSpacing(track){
   $("<input>").attr("type","submit").attr("value","Make Plot").appendTo(form);
 
   $( "form" ).submit(function( event ) {
-    myData = [];
-    plotCurves = [];
-    plotJSON = {};
-    xaxes = [];
-    traces = [];
-    trackPositions = {};
-    overlay_axis = null;
-    layout = {};
-    layout.margin = margin;
-    layout.width = 970;
-    layout.height = $("#track1").height();
 
     selected_curves = $('input[type=checkbox]:checked');
     selected_curves.each(function(index, el){
@@ -311,7 +109,7 @@ function generateSubplotSpacing(track){
     myData = $( this ).serializeArray();
     $.each(plotCurves, function(index, value){
       var curve_settings = myData.filter(function(Obj){
-        return Obj.name.includes(value);
+        return Obj.name.endsWith(value);
       });
       scale_range = [parseFloat(curve_settings[5].value), parseFloat(curve_settings[6].value)];
 
@@ -323,8 +121,10 @@ function generateSubplotSpacing(track){
         scale: scale_range
       }
     });
+    init(plotJSON);
+    $('#link_tab2').trigger('click');
     prepForPlot(plotJSON);
-    Plotly.newPlot('track1',traces,layout);
+    Plotly.newPlot('track1',myData.traces,myData.layout);
     event.preventDefault();
   });
 });
