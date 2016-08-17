@@ -30,6 +30,7 @@ end
 # Production Sinatra Configuration
 configure :production do
   # NOOP
+  set :public_folder, 'public'
 end
 
 # Set up the database and models
