@@ -20,7 +20,7 @@ configure do
   set :session_secret, ENV['SESSION_KEY'] || 'lighthouselabssecret'
 
   set :views, File.join(Sinatra::Application.root, "app", "views")
-    set :public_folder, 'public'
+  set :public_folder, File.join(Sinatra::Application.root, 'public')
 end
 
 # Development and Test Sinatra Configuration
