@@ -17,7 +17,7 @@ if (welldata.curveinfo.DEPT) {
   unit = welldata.curveinfo.DEPTH.unit
 }
 
-$(document).ready(function() {    
+$(document).ready(function() {
 
   var div_header = $(document.createElement('div')).attr("id","well_header").appendTo("#tab2");
   var div_track1 = $(document.createElement('div')).attr("id","track1").appendTo("#tab2");
@@ -35,9 +35,6 @@ $(document).ready(function() {
   $("<tr>").text("Location : "+welldata.wellinfo.location).appendTo(tab2_header);
   $("<tr>").text("Unit : "+welldata.wellinfo.unit).appendTo(tab2_header);
   $("<tr>").text("Date : "+welldata.wellinfo.date).appendTo(tab2_header);
-});
-
-$(document).ready(function() {
 
   var form = document.getElementById("main_form");
   curves.forEach(function(curve){
@@ -95,9 +92,10 @@ $(document).ready(function() {
 
         $("<input>").attr("id","maxscale").attr("value","100").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
       }
-    }                 
+    }
 
   });
+  jscolor.installByClassName("jscolor")
 
   $("<input>").attr("type","submit").attr("value","Make Plot").appendTo(form);
 
