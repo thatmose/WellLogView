@@ -1,6 +1,6 @@
 const GRAPH_END = 0.92;
 const XAXIS_OFFSET = 0.01;
-const SUBPLOT_SPACING = [ [0, .30], [.37, .39], [.40, .66] ,[.70, 1]];
+const SUBPLOT_SPACING = [ [0, .30], [.35, .35], [.36, .66] ,[.70, 1]];
 
 // Initializes the variables storing general plot information.
 function init(){
@@ -21,7 +21,7 @@ function init(){
     margin: {
       l: 50,
       r: 50,
-      b: 0,
+      b: 5,
       t: 50,
       pad: 4
     },
@@ -126,11 +126,15 @@ function init(){
     showline: true,
     mirror: 'all',
     linewidth: 2,
-    position: 0.33,
+    position: 0.31,
 
     ticklen: 4,
-    // tick0: depth.scale[0],
+    tickwidth: 3,
     nticks: 20,
+    
+    tickfont: {
+      size: 16
+    }
   }
 }
 

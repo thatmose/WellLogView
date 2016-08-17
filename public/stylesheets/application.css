@@ -1,11 +1,12 @@
+#title {
+  color: white;
+}
+
 .navbar.navbar-default.navbar-fixed-top {
   background-color: #343467;
   margin-top: 1.5%;
 }
 
-#title {
-  color: white;
-}
 
 /*----- Tabs -----*/
 .tabs {
@@ -28,6 +29,7 @@
 }
 
 .tab-links a {
+  text-decoration: none;
   padding:9px 15px;
   display:inline-block;
   border-radius:3px 3px 0px 0px;
@@ -107,28 +109,7 @@ h3 {
 div#track1 {
   width: 96%;
   height: 2000px;
-  border: 1px solid;
-  float: left;
-}
-
-div#track2 {
-  width: 5%;
-  height: 2000px;
-  border: 1px solid;
-  float: left;
-}
-
-div#track3 {
-  width: 30%;
-  height: 2000px;
-  border: 1px solid;
-  float: left;
-}
-
-div#track4 {
-  width: 30.7%;
-  height: 2000px;
-  border: 1px solid;
+  border: 2px solid;
   float: left;
 }
 
@@ -136,6 +117,11 @@ div#track4 {
   float: right;
   background-color: white;
   position: relative;
+  top: 6px;
+}
+
+#home_link {
+  text-decoration: none;
 }
 
 h1 {
@@ -153,9 +139,12 @@ div.data_submit {
   border-radius: 5px;
   border: 1px solid;
   background-color: #ffffe6;
+
+  margin: auto;
+  text-align: center;
 }
 
-th#column {
+.column {
   padding: 0 22px 0 22px;
 }
 
@@ -166,7 +155,9 @@ th#column {
   border: 1px solid;
 }
 
-
+#url_input_box {
+  width: 90%;
+}
 
 
 
