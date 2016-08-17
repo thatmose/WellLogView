@@ -20,6 +20,7 @@ configure do
   set :session_secret, ENV['SESSION_KEY'] || 'lighthouselabssecret'
 
   set :views, File.join(Sinatra::Application.root, "app", "views")
+    set :public_folder, 'public'
 end
 
 # Development and Test Sinatra Configuration
@@ -30,8 +31,6 @@ end
 # Production Sinatra Configuration
 configure :production do
   # NOOP
-  set :public_folder, 'public'
-  set :root, LogWellView.root
 end
 
 # Set up the database and models
