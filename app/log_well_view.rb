@@ -4,6 +4,7 @@ require 'json'
 require_relative 'well'
 
  class LogWellView < Sinatra::Base
+  set :public_folder, 'public'
 
   get '/' do
     erb :index
