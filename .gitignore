@@ -1,5 +1,8 @@
 .env
 .bundle
+/*.las
+/*.LAS
+/*.json
 /db/*.db
 /db/*.sqlite3
 /db/*.sqlite
