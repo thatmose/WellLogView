@@ -31,6 +31,7 @@ end
 configure :production do
   # NOOP
   set :public_folder, 'public'
+  set :root, LogWellView.root
 end
 
 # Set up the database and models
