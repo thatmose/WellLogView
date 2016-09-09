@@ -33,6 +33,8 @@ $(document).ready(function() {
       $("<input>").attr("id","minscale").attr("value","0").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
       $("<input>").attr("id","maxscale").attr("value","150").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
+
+      $("<input>").attr("id","curveunit").attr("value",welldata.curveinfo[curve].unit).attr("name","curveunit"+curve).attr("size","6").appendTo(div);
     },
     cali_default_oilfield: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -61,6 +63,8 @@ $(document).ready(function() {
       $("<input>").attr("id","minscale").attr("value","6").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
       $("<input>").attr("id","maxscale").attr("value","16").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
+
+      $("<input>").attr("id","curveunit").attr("value",welldata.curveinfo[curve].unit).attr("name","curveunit"+curve).attr("size","6").appendTo(div);
     },
     cali_default_metric: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -89,6 +93,8 @@ $(document).ready(function() {
       $("<input>").attr("id","minscale").attr("value","150").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
       $("<input>").attr("id","maxscale").attr("value","410").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
+
+      $("<input>").attr("id","curveunit").attr("value",welldata.curveinfo[curve].unit).attr("name","curveunit"+curve).attr("size","6").appendTo(div);
     },
     rhob_default_oilfield: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -117,6 +123,8 @@ $(document).ready(function() {
       $("<input>").attr("id","minscale").attr("value","1.95").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
       $("<input>").attr("id","maxscale").attr("value","2.95").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
+
+      $("<input>").attr("id","curveunit").attr("value",welldata.curveinfo[curve].unit).attr("name","curveunit"+curve).attr("size","6").appendTo(div);
     },
     rhob_default_metric: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -145,6 +153,8 @@ $(document).ready(function() {
       $("<input>").attr("id","minscale").attr("value","1950").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
       $("<input>").attr("id","maxscale").attr("value","2950").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
+
+      $("<input>").attr("id","curveunit").attr("value",welldata.curveinfo[curve].unit).attr("name","curveunit"+curve).attr("size","6").appendTo(div);
     },
     ild_default: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -173,6 +183,8 @@ $(document).ready(function() {
       $("<input>").attr("id","minscale").attr("value","0.2").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
       $("<input>").attr("id","maxscale").attr("value","2000").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
+
+      $("<input>").attr("id","curveunit").attr("value",welldata.curveinfo[curve].unit).attr("name","curveunit"+curve).attr("size","6").appendTo(div);
     },
     ilm_default: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -201,6 +213,8 @@ $(document).ready(function() {
       $("<input>").attr("id","minscale").attr("value","0.2").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
       $("<input>").attr("id","maxscale").attr("value","2000").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
+
+      $("<input>").attr("id","curveunit").attr("value",welldata.curveinfo[curve].unit).attr("name","curveunit"+curve).attr("size","6").appendTo(div);
     },
     sfl_default: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -229,6 +243,8 @@ $(document).ready(function() {
       $("<input>").attr("id","minscale").attr("value","0.2").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
       $("<input>").attr("id","maxscale").attr("value","2000").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
+
+      $("<input>").attr("id","curveunit").attr("value",welldata.curveinfo[curve].unit).attr("name","curveunit"+curve).attr("size","6").appendTo(div);
     },
     nphi_default: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -258,6 +274,8 @@ $(document).ready(function() {
 
       $("<input>").attr("id","maxscale").attr("value","45").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
 
+      $("<input>").attr("id","curveunit").attr("value",welldata.curveinfo[curve].unit).attr("name","curveunit"+curve).attr("size","6").appendTo(div);
+
     },
     dt_default_oilfield: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -286,6 +304,8 @@ $(document).ready(function() {
       $("<input>").attr("id","minscale").attr("value","40").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
       $("<input>").attr("id","maxscale").attr("value","140").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
+
+      $("<input>").attr("id","curveunit").attr("value",welldata.curveinfo[curve].unit).attr("name","curveunit"+curve).attr("size","6").appendTo(div);
     },
     dt_default_metric: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -314,6 +334,8 @@ $(document).ready(function() {
       $("<input>").attr("id","minscale").attr("value","100").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
       $("<input>").attr("id","maxscale").attr("value","500").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
+
+      $("<input>").attr("id","curveunit").attr("value",welldata.curveinfo[curve].unit).attr("name","curveunit"+curve).attr("size","6").appendTo(div);
     },
     pef_default: function(curve){
       var div = $(document.createElement('div')).attr("id","curve_settings").appendTo(form);
@@ -342,6 +364,8 @@ $(document).ready(function() {
       $("<input>").attr("id","minscale").attr("value","0").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
       $("<input>").attr("id","maxscale").attr("value","10").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
+
+      $("<input>").attr("id","curveunit").attr("value",welldata.curveinfo[curve].unit).attr("name","curveunit"+curve).attr("size","6").appendTo(div);
     }                     
   }   
 });

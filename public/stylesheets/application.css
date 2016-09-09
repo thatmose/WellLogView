@@ -97,6 +97,11 @@ input#maxscale {
   left: 43%;
 }
 
+input#curveunit {
+  position: fixed;
+  left: 49%;
+}
+
 div#well_header {
   width: 96%;
   height: 290px;

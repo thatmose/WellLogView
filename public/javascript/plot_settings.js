@@ -89,6 +89,8 @@ $(document).ready(function() {
         $("<input>").attr("id","minscale").attr("value","0").attr("name","minscale"+curve).attr("size","6").appendTo(div);
 
         $("<input>").attr("id","maxscale").attr("value","100").attr("name","maxscale"+curve).attr("size","6").appendTo(div);
+
+        $("<input>").attr("id","curveunit").attr("value",welldata.curveinfo[curve].unit).attr("name","curveunit"+curve).attr("size","6").appendTo(div);
       }
     }
 
