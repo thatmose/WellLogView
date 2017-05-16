@@ -4,12 +4,12 @@ To offer oil and gas analysts a web visualisation tool to pre-qualify Log ASCII 
 
 ## Tools
 
-Sinatra, Bootstrap, Plotly.js
+Sinatra, Bootstrap and Plotly.js.
 No database was used (The las_reader gem was used to parse the LAS files and the files discarded afterwards). 
 
 # Demo
 
-A demo of the application can be found [here](https://welllogviewer.herokuapp.com/)
+A demo of the application can be found [here](https://welllogviewer.herokuapp.com/).
 Sample URLs (Obtained from Alaska Oil and Gas Conservation Commission) you can use are listed below :
 * http://aogweb.state.ak.us/DigLog/CookInlet/50283200020000.LAS
 * http://aogweb.state.ak.us/DigLog/CookInlet/50133204190000.LAS
